@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog Post | Advisors LIC</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <style>
+    :root{--lic-blue:#0b3c8c;--lic-yellow:#f6c400;--lic-light:#f4f7fb;--text-dark:#1e1e1e;}
+    *{box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
+    body{margin:0;background:var(--lic-light);color:var(--text-dark);line-height:1.7}
+    header{background:#fff;border-bottom:4px solid var(--lic-yellow)}
+    .header-inner{max-width:900px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+    .brand-badge{width:44px;height:44px;border-radius:10px;background:var(--lic-yellow);color:var(--lic-blue);display:flex;align-items:center;justify-content:center;font-weight:900}
+    nav a{margin-left:14px;text-decoration:none;color:var(--lic-blue);font-weight:800}
+    nav a:hover{text-decoration:underline}
+    main{max-width:900px;margin:auto;padding:22px 18px}
+    .paper{background:#fff;border-radius:14px;box-shadow:0 10px 24px rgba(0,0,0,.08);padding:22px;border-top:5px solid var(--lic-yellow)}
+    h1{margin:0 0 8px;color:var(--lic-blue);font-size:28px;line-height:1.2}
+    .meta{font-size:12px;color:#6b6b6b;margin-bottom:18px}
+    .content img{max-width:100%;border-radius:12px}
+    .content a{color:var(--lic-blue);font-weight:800}
+    .cta{margin-top:24px;padding:16px;border-radius:14px;background:linear-gradient(120deg,var(--lic-blue),#124fb8);color:#fff}
+    .cta a{display:inline-block;margin-top:10px;background:var(--lic-yellow);color:var(--lic-blue);font-weight:900;text-decoration:none;padding:12px 16px;border-radius:12px}
+    footer{background:#0a2f6f;color:#fff;text-align:center;padding:22px 18px;font-size:13px}
+    footer p{margin:6px 0}
+    code{background:#f0f3f9;padding:2px 6px;border-radius:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="blog.html" aria-label="Blog home">
+        <div class="brand-badge" aria-hidden="true">LIC</div>
+        <div><strong>Advisors LIC</strong><br><small style="color:#555">Blog</small></div>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#apply">Apply</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="paper">
+      <h1 id="title">Loading…</h1>
+      <div class="meta" id="meta"></div>
+      <div class="content" id="content"></div>
+
+      <div class="cta">
+        <div><strong>Want to apply for LIC Agent / Bima Sakhi?</strong></div>
+        <div>Get guidance on eligibility, documents, fees, training and IC-38 exam.</div>
+        <a href="index.html#apply">✅ Apply Now</a>
+      </div>
+    </div>
+  </main>
+
+  <footer><p>© 2025 Advisors LIC | Blog</p></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    async function fetchJson(url){
+      const r = await fetch(url, {cache:'no-store'});
+      if(!r.ok) throw new Error('Failed to load: ' + url);
+      return await r.json();
+    }
+    async function fetchText(url){
+      const r = await fetch(url, {cache:'no-store'});
+      if(!r.ok) throw new Error('Failed to load: ' + url);
+      return await r.text();
+    }
+    function qs(name){
+      const u = new URL(location.href);
+      return u.searchParams.get(name);
+    }
+    function formatDate(d){
+      try{ return new Date(d).toLocaleDateString('en-IN',{year:'numeric',month:'short',day:'2-digit'}); }
+      catch(e){ return ''; }
+    }
+    async function loadPost(){
+      const slug = qs('slug');
+      if(!slug){
+        document.getElementById('title').textContent = 'Post not found';
+        document.getElementById('content').innerHTML = 'Missing slug.';
+        return;
+      }
+      const index = await fetchJson('blog/posts.json');
+      const post = (index.posts || []).find(p => p.slug === slug);
+      document.getElementById('title').textContent = post ? (post.title || slug) : slug;
+      document.getElementById('meta').textContent = post ? (formatDate(post.date) + (post.category ? (' • ' + post.category) : '')) : '';
+      const md = await fetchText('blog/posts/' + encodeURIComponent(slug) + '.md');
+      document.getElementById('content').innerHTML = marked.parse(md);
+      document.title = (post && post.title ? post.title : slug) + ' | Advisors LIC';
+    }
+    loadPost().catch(err=>{
+      document.getElementById('title').textContent = 'Post not found';
+      document.getElementById('content').innerHTML = 'Unable to load this post. Please check the file exists in <code>blog/posts/</code>.';
+      console.error(err);
+    });
+  </script>
+</body>
+</html>

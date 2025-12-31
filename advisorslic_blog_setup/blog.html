@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog | Advisors LIC</title>
+  <meta name="description" content="Latest updates, guidance and FAQs about LIC Agent & Bima Sakhi recruitment, IC-38 exam, eligibility and career tips." />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <style>
+    :root{--lic-blue:#0b3c8c;--lic-yellow:#f6c400;--lic-light:#f4f7fb;--text-dark:#1e1e1e;}
+    *{box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
+    body{margin:0;background:var(--lic-light);color:var(--text-dark);line-height:1.6}
+    header{background:#fff;border-bottom:4px solid var(--lic-yellow)}
+    .header-inner{max-width:1100px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+    .brand-badge{width:44px;height:44px;border-radius:10px;background:var(--lic-yellow);color:var(--lic-blue);display:flex;align-items:center;justify-content:center;font-weight:900}
+    nav a{margin-left:14px;text-decoration:none;color:var(--lic-blue);font-weight:800}
+    nav a:hover{text-decoration:underline}
+    .hero{background:linear-gradient(120deg,var(--lic-blue),#124fb8);color:#fff;padding:38px 18px}
+    .hero .inner{max-width:1100px;margin:auto}
+    .hero h1{margin:0 0 8px;font-size:30px}
+    .hero p{margin:0;color:rgba(255,255,255,.92)}
+    .container{max-width:1100px;margin:auto;padding:26px 18px}
+    .tools{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 22px}
+    .search{flex:1;min-width:220px;padding:12px 14px;border-radius:10px;border:1px solid #cfcfcf;font-size:15px}
+    .btn{padding:12px 16px;border-radius:10px;border:none;background:var(--lic-yellow);color:var(--lic-blue);font-weight:900;cursor:pointer}
+    .btn:hover{filter:brightness(.98)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+    .card{background:#fff;border-radius:14px;box-shadow:0 8px 18px rgba(0,0,0,.08);border-top:5px solid var(--lic-yellow);padding:18px}
+    .card h3{margin:0 0 8px;color:var(--lic-blue);font-size:18px}
+    .meta{font-size:12px;color:#6b6b6b;margin-bottom:10px}
+    .card p{margin:0 0 12px}
+    .read{display:inline-block;font-weight:900;color:var(--lic-blue);text-decoration:none}
+    .read:hover{text-decoration:underline}
+    .note{margin-top:18px;background:#fff;border-radius:14px;padding:16px;border:1px dashed rgba(11,60,140,.35)}
+    footer{background:#0a2f6f;color:#fff;text-align:center;padding:22px 18px;font-size:13px}
+    footer p{margin:6px 0}
+    code{background:#f0f3f9;padding:2px 6px;border-radius:8px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Home">
+        <div class="brand-badge" aria-hidden="true">LIC</div>
+        <div><strong>Advisors LIC</strong><br><small style="color:#555">Blog</small></div>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="blog.html">Blog</a>
+        <a href="index.html#apply">Apply</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="inner">
+      <h1>Latest Blog Posts</h1>
+      <p>Recruitment guidance, IC-38 exam tips, eligibility, and career growth updates.</p>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="tools">
+      <input id="q" class="search" type="search" placeholder="Search posts (e.g., Bima Sakhi, IC-38, eligibility)..." />
+      <button class="btn" onclick="loadPosts()">Refresh</button>
+    </div>
+
+    <div id="posts" class="grid"></div>
+
+    <div class="note">
+      <strong>How to publish blogs from Netlify CMS:</strong>
+      <ol>
+        <li>Open <code>/admin</code> and create a new post in <b>Blog Posts</b>.</li>
+        <li>Then open <b>Blog Index</b> and add an entry for your new post (title, date, description, slug).</li>
+      </ol>
+      <div style="font-size:12px;color:#666">Tip: Slug is the filename without .md (example: <code>bima-sakhi-stipend</code>).</div>
+    </div>
+  </main>
+
+  <footer><p>© 2025 Advisors LIC | Blog</p></footer>
+
+  <script>
+    async function fetchJson(url){
+      const r = await fetch(url, {cache:'no-store'});
+      if(!r.ok) throw new Error('Failed to load: ' + url);
+      return await r.json();
+    }
+    function formatDate(d){
+      try{ return new Date(d).toLocaleDateString('en-IN',{year:'numeric',month:'short',day:'2-digit'}); }
+      catch(e){ return ''; }
+    }
+    function matches(post, q){
+      if(!q) return true;
+      q = q.toLowerCase();
+      return (post.title||'').toLowerCase().includes(q) ||
+             (post.description||'').toLowerCase().includes(q) ||
+             (post.slug||'').toLowerCase().includes(q);
+    }
+    async function loadPosts(){
+      const wrap = document.getElementById('posts');
+      wrap.innerHTML = '<div style="color:#555">Loading...</div>';
+      try{
+        const data = await fetchJson('blog/posts.json');
+        const q = (document.getElementById('q').value || '').trim();
+        const posts = (data.posts || []).slice().sort((a,b)=> (new Date(b.date)) - (new Date(a.date)));
+        const filtered = posts.filter(p => matches(p, q));
+        if(filtered.length === 0){
+          wrap.innerHTML = '<div style="color:#555">No posts found.</div>';
+          return;
+        }
+        wrap.innerHTML = filtered.map(p => `
+          <article class="card">
+            <h3>${p.title || 'Untitled'}</h3>
+            <div class="meta">${formatDate(p.date)} • ${p.category ? p.category : 'Blog'}</div>
+            <p>${p.description || ''}</p>
+            <a class="read" href="post.html?slug=${encodeURIComponent(p.slug)}">Read →</a>
+          </article>
+        `).join('');
+      }catch(err){
+        wrap.innerHTML = '<div style="color:#b00020">Could not load posts. Please check <code>blog/posts.json</code>.</div>';
+        console.error(err);
+      }
+    }
+    document.getElementById('q').addEventListener('input', ()=>loadPosts());
+    loadPosts();
+  </script>
+</body>
+</html>
