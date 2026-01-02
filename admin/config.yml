@@ -1,13 +1,9 @@
-
 backend:
   name: github
   repo: advisorslic/advisorslic-website
   branch: main
   auth_type: implicit
   app_id: Ov23lieQv3zaNfd7pyk0
-
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
@@ -30,7 +26,7 @@ collections:
   - name: "blogIndex"
     label: "Blog Index"
     files:
-      - file: "blog/posts.json"
+      - file: "posts.json"
         label: "Posts List (for blog.html)"
         name: "postsList"
         fields:
