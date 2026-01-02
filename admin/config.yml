@@ -2,8 +2,8 @@ backend:
   name: github
   repo: advisorslic/advisorslic-website
   branch: main
-  auth_type: implicit
-  app_id: Ov23lieQv3zaNfd7pyk0
+  base_url: https://advisorslic.in
+  auth_endpoint: api/auth
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
