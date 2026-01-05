@@ -31,7 +31,7 @@ export async function onRequest({ request, env }) {
       (function () {
         var msg = "authorization:github:success:" + JSON.stringify({ token: "${token}" });
         if (window.opener) {
-          window.opener.postMessage(msg, "${origin}");
+          window.opener.postMessage(msg, "*");
           window.close();
         } else {
           document.body.innerHTML = "Authorized. Return to the Admin tab.";
