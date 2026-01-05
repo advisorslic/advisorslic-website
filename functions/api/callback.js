@@ -1,8 +1,7 @@
 export async function onRequest({ request, env }) {
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
-
-  if (!code) return new Response("Missing code", { status: 400 });
+  if (!code) return new Response("Missing ?code=", { status: 400 });
 
   const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
     method: "POST",
@@ -15,33 +14,37 @@ export async function onRequest({ request, env }) {
   });
 
   const tokenData = await tokenRes.json();
+  const token = tokenData.access_token;
 
-  if (!tokenData.access_token) {
-    return new Response(JSON.stringify(tokenData, null, 2), {
-      status: 400,
-      headers: { "Content-Type": "application/json" },
-    });
+  // If token is missing, SHOW the error (do not close)
+  if (!token) {
+    return new Response(
+      `<h3>GitHub token error</h3><pre>${escapeHtml(JSON.stringify(tokenData, null, 2))}</pre>
+       <p>Check Cloudflare Pages env vars: GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET</p>`,
+      { headers: { "Content-Type": "text/html" }, status: 400 }
+    );
   }
 
-  // IMPORTANT: Send token back to the opener (Decap CMS) and close the window
-  const html = `
-<!doctype html>
-<html>
-  <head><meta charset="utf-8" /></head>
-  <body>
+  // Send token to Decap and close popup
+  const html = `<!doctype html><html><body>
     <script>
-      (function() {
-        var msg = { token: "${tokenData.access_token}", provider: "github" };
+      (function () {
+        var msg = { token: "${token}", provider: "github" };
         if (window.opener) {
-          window.opener.postMessage(msg, "*");
+          window.opener.postMessage(msg, "${url.origin}");
           window.close();
         } else {
-          document.body.innerHTML = "Login completed. You can close this tab and return to the Admin page.";
+          document.body.innerHTML = "Login completed. Please return to the Admin tab.";
         }
       })();
     </script>
-  </body>
-</html>`;
+  </body></html>`;
 
   return new Response(html, { headers: { "Content-Type": "text/html" } });
+}
+
+function escapeHtml(str) {
+  return str.replace(/[&<>"']/g, s => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[s]));
 }
