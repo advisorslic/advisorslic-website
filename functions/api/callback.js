@@ -1,7 +1,7 @@
 export async function onRequest({ request, env }) {
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
-  if (!code) return new Response("Missing ?code=", { status: 400 });
+  if (!code) return new Response("Missing code", { status: 400 });
 
   const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
     method: "POST",
@@ -16,31 +16,31 @@ export async function onRequest({ request, env }) {
   const tokenData = await tokenRes.json();
   const token = tokenData.access_token;
 
-  // If token is missing, SHOW the error (do not close)
   if (!token) {
     return new Response(
-      `<h3>GitHub token error</h3><pre>${escapeHtml(JSON.stringify(tokenData, null, 2))}</pre>
-       <p>Check Cloudflare Pages env vars: GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET</p>`,
+      `<h3>Token not received</h3><pre>${escapeHtml(JSON.stringify(tokenData, null, 2))}</pre>`,
       { headers: { "Content-Type": "text/html" }, status: 400 }
     );
   }
 
-  // Send token to Decap and close popup
-  const html = `<!doctype html><html><body>
-    <script>
-      (function () {
-        var msg = { token: "${token}", provider: "github" };
-        if (window.opener) {
-          window.opener.postMessage(msg, "${url.origin}");
-          window.close();
-        } else {
-          document.body.innerHTML = "Login completed. Please return to the Admin tab.";
-        }
-      })();
-    </script>
-  </body></html>`;
+  const origin = url.origin;
 
-  return new Response(html, { headers: { "Content-Type": "text/html" } });
+  return new Response(
+    `<!doctype html><html><body>
+      <script>
+        (function () {
+          var msg = { token: "${token}", provider: "github" };
+          if (window.opener) {
+            window.opener.postMessage(msg, "${origin}");
+            window.close();
+          } else {
+            document.body.innerHTML = "Authorized. Return to the Admin tab.";
+          }
+        })();
+      </script>
+    </body></html>`,
+    { headers: { "Content-Type": "text/html" } }
+  );
 }
 
 function escapeHtml(str) {
