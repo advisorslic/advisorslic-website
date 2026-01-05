@@ -6,7 +6,7 @@ export async function onRequest({ request, env }) {
     "https://github.com/login/oauth/authorize" +
     `?client_id=${encodeURIComponent(env.GITHUB_CLIENT_ID)}` +
     `&redirect_uri=${encodeURIComponent(redirectUri)}` +
-    `&scope=repo`;
+    `&scope=public_repo`;
 
   return Response.redirect(githubUrl, 302);
 }
