@@ -17,15 +17,15 @@ export async function onRequest({ request, env }) {
   const token = tokenData.access_token;
 
   if (!token) {
-    return new Response(
-      `<h3>Token error</h3><pre>${escapeHtml(JSON.stringify(tokenData, null, 2))}</pre>`,
-      { headers: { "Content-Type": "text/html" }, status: 400 }
-    );
+    return new Response(JSON.stringify(tokenData, null, 2), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 
   const origin = url.origin;
 
-  // Decap expects this message shape
+  // ✅ Decap-compatible message string
   const html = `<!doctype html><html><body>
     <script>
       (function () {
@@ -41,10 +41,4 @@ export async function onRequest({ request, env }) {
   </body></html>`;
 
   return new Response(html, { headers: { "Content-Type": "text/html" } });
-}
-
-function escapeHtml(str) {
-  return str.replace(/[&<>"']/g, s => ({
-    "&":"&amp;","<":"&lt;",">":"&lt;",'"':"&quot;","'":"&#39;"
-  }[s]));
 }
