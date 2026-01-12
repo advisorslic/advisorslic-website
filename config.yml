@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: advisorslic/advisorslic-website
   branch: main
+  base_url: https://advisorslic.in
+  auth_endpoint: /api/auth
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
