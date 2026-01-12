@@ -3,8 +3,7 @@ backend:
   repo: advisorslic/advisorslic-website
   branch: main
   base_url: https://advisorslic.in
-  auth_endpoint: api/auth
-
+  auth_endpoint: /api/auth
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
@@ -27,7 +26,7 @@ collections:
   - name: "blogIndex"
     label: "Blog Index"
     files:
-      - file: "posts.json"
+      - file: "blog/posts.json"
         label: "Posts List (for blog.html)"
         name: "postsList"
         fields:
