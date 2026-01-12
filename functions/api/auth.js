@@ -1,12 +1,22 @@
-export async function onRequest({ request, env }) {
-  const url = new URL(request.url);
-  const redirectUri = `${url.origin}/api/callback`;
+export async function onRequestGet({ env }) {
+  const state = crypto.randomUUID();
 
-  const githubUrl =
-    "https://github.com/login/oauth/authorize" +
+  // Store state in a cookie so callback can validate it
+  const cookie = `oauth_state=${state}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=600`;
+
+  const redirectUri = "https://advisorslic.in/api/callback";
+  const authUrl =
+    `https://github.com/login/oauth/authorize` +
     `?client_id=${encodeURIComponent(env.GITHUB_CLIENT_ID)}` +
     `&redirect_uri=${encodeURIComponent(redirectUri)}` +
-    `&scope=public_repo`;
+    `&scope=${encodeURIComponent("repo,user")}` +
+    `&state=${encodeURIComponent(state)}`;
 
-  return Response.redirect(githubUrl, 302);
+  return new Response(null, {
+    status: 302,
+    headers: {
+      "Set-Cookie": cookie,
+      "Location": authUrl,
+    },
+  });
 }
