@@ -20,17 +20,24 @@ export async function onRequestGet({ request, env }) {
     return new Response("Token exchange failed: " + JSON.stringify(tokenJson), { status: 400 });
   }
 
-  const ORIGIN = "https://advisorslic.in";
+  const origin = "https://advisorslic.in";
+  const msg = `authorization:github:success:${token}`;
 
   const html = `<!doctype html><html><body>
 <script>
   (function () {
-    var msg = "authorization:github:success:${token}";
-    if (window.opener) window.opener.postMessage(msg, "${ORIGIN}");
-    window.close();
+    var msg = ${JSON.stringify(msg)};
+    // Normal popup flow:
+    if (window.opener) {
+      window.opener.postMessage(msg, ${JSON.stringify(origin)});
+      window.close();
+      return;
+    }
+    // Fallback: same-tab flow
+    window.location.replace(${JSON.stringify(origin + "/admin/#/") } + "?token=" + encodeURIComponent(msg));
   })();
 </script>
-Authorized. You may close this window.
+Authorized.
 </body></html>`;
 
   return new Response(html, { headers: { "Content-Type": "text/html; charset=utf-8" } });
