@@ -1,8 +1,7 @@
 export async function onRequestGet({ env }) {
   const state = crypto.randomUUID();
 
-  // Store state in a cookie so callback can validate it
-  const cookie = `oauth_state=${state}; Path=/; HttpOnly; Secure; SameSite=None; Max-Age=600`;
+  const cookie = `__Host-oauth_state=${state}; Path=/; HttpOnly; Secure; SameSite=None; Max-Age=600`;
 
   const redirectUri = "https://advisorslic.in/api/callback";
   const authUrl =
@@ -17,6 +16,7 @@ export async function onRequestGet({ env }) {
     headers: {
       "Set-Cookie": cookie,
       "Location": authUrl,
+      "Cache-Control": "no-store",
     },
   });
 }
