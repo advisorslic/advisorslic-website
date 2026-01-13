@@ -14,7 +14,6 @@ export async function onRequestGet({ request, env }) {
     return new Response("Invalid state", { status: 400 });
   }
 
-  // exchange token
   const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
@@ -34,20 +33,13 @@ export async function onRequestGet({ request, env }) {
     return new Response("Token exchange failed: " + JSON.stringify(tokenJson), { status: 400 });
   }
 
-  // send token via URL hash (fallback-safe)
   const msg = `authorization:github:success:${token}`;
   const redirect = `https://advisorslic.in/admin/#/auth?token=${encodeURIComponent(msg)}`;
 
-  const html = `<!doctype html><html><body>
-<script>
-  window.location.replace(${JSON.stringify(redirect)});
-</script>
-Authorized.
-</body></html>`;
-
-  return new Response(html, {
+  return new Response(null, {
+    status: 302,
     headers: {
-      "Content-Type": "text/html; charset=utf-8",
+      Location: redirect,
       "Set-Cookie": "oauth_state=; Path=/; Max-Age=0; Secure; SameSite=Lax",
     },
   });
