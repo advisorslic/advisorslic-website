@@ -88,8 +88,14 @@
         return;
       }
       const index = await fetchJson('blog/posts.json');
-      const post = (index.posts || []).find(p => p.slug === slug);
-      document.getElementById('title').textContent = post ? (post.title || slug) : slug;
+const all = index.posts || [];
+const post = all.find(p => p.slug_en === slug || p.slug_hi === slug);
+
+let title = slug;
+if (post) title = (post.slug_hi === slug) ? post.title_hi : post.title_en;
+
+document.getElementById('title').textContent = title;
+
       document.getElementById('meta').textContent = post ? (formatDate(post.date) + (post.category ? (' • ' + post.category) : '')) : '';
       const md = await fetchText('blog/posts/' + encodeURIComponent(slug) + '.md');
       document.getElementById('content').innerHTML = marked.parse(md);
