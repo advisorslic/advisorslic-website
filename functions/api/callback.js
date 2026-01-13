@@ -5,15 +5,17 @@ export async function onRequestGet({ request, env }) {
 
   if (!code) return new Response("Missing code", { status: 400 });
 
-  // Validate state from cookie set by /api/auth
+  // Read oauth_state cookie set by /api/auth
   const cookieHeader = request.headers.get("Cookie") || "";
   const match = cookieHeader.match(/(?:^|;\s*)oauth_state=([^;]+)/);
   const cookieState = match ? decodeURIComponent(match[1]) : null;
 
+  // Must match
   if (!state || !cookieState || state !== cookieState) {
-    return new Response(`Invalid state`, { status: 400 });
+    return new Response("Invalid state", { status: 400 });
   }
 
+  // Exchange code for token (include redirect_uri + state)
   const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
@@ -44,7 +46,7 @@ export async function onRequestGet({ request, env }) {
       window.opener.postMessage(msg, ${JSON.stringify(ORIGIN)});
       window.close();
     } else {
-      document.body.innerText = "Authorized. Return to Admin tab.";
+      document.body.innerText = "Authorized. Return to the Admin tab.";
     }
   })();
 </script>
@@ -54,6 +56,7 @@ Authorized.
   return new Response(html, {
     headers: {
       "Content-Type": "text/html; charset=utf-8",
+      // clear state cookie
       "Set-Cookie": "oauth_state=; Path=/; Max-Age=0; Secure; SameSite=Lax",
     },
   });
