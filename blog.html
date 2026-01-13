@@ -1,44 +1,53 @@
+<h1>Blog | Advisors LIC</h1>
+
+<button onclick="setLang('hi')">हिंदी</button>
+<button onclick="setLang('en')">English</button>
+
+<!-- 🔴 THIS LINE IS MANDATORY -->
+<div id="blog-list"></div>
+
+<!-- 🔴 YOUR SCRIPT MUST COME AFTER -->
 <script>
-let LANG = localStorage.getItem("blog_lang") || "hi";
+  let LANG = localStorage.getItem("blog_lang") || "hi";
 
-function setLang(lang) {
-  LANG = lang;
-  localStorage.setItem("blog_lang", lang);
-  renderBlogs();
-}
+  function setLang(lang) {
+    LANG = lang;
+    localStorage.setItem("blog_lang", lang);
+    renderBlogs();
+  }
 
-function renderBlogs() {
-  fetch('/blog/posts.json', { cache: 'no-store' })
-    .then(res => res.json())
-    .then(data => {
-      const posts = data.posts || [];   // ✅ IMPORTANT FIX
-      const container = document.getElementById('blog-list');
-      container.innerHTML = '';
+  function renderBlogs() {
+    fetch('/blog/posts.json', { cache: 'no-store' })
+      .then(res => res.json())
+      .then(data => {
+        const posts = data.posts || [];
+        const container = document.getElementById('blog-list');
+        container.innerHTML = '';
 
-      posts.forEach(post => {
-        const title = LANG === 'hi' ? post.title_hi : post.title_en;
-        const desc  = LANG === 'hi' ? post.description_hi : post.description_en;
-        const slug  = LANG === 'hi' ? post.slug_hi : post.slug_en;
+        posts.forEach(post => {
+          const title = LANG === 'hi' ? post.title_hi : post.title_en;
+          const desc  = LANG === 'hi' ? post.description_hi : post.description_en;
+          const slug  = LANG === 'hi' ? post.slug_hi : post.slug_en;
 
-        container.innerHTML += `
-          <div style="border:1px solid #ddd; padding:15px; margin-bottom:15px;">
-            <h2>${title}</h2>
-            <p>${desc}</p>
-            <a href="/post.html?slug=${slug}">Read More</a>
-          </div>
-        `;
+          container.innerHTML += `
+            <div style="border:1px solid #ddd; padding:15px; margin-bottom:15px;">
+              <h2>${title}</h2>
+              <p>${desc}</p>
+              <a href="/post.html?slug=${slug}">Read More</a>
+            </div>
+          `;
+        });
+
+        if (posts.length === 0) {
+          container.innerHTML = "<p>No posts found.</p>";
+        }
+      })
+      .catch(err => {
+        document.getElementById('blog-list').innerHTML =
+          "<p>Unable to load blog posts.</p>";
+        console.error(err);
       });
+  }
 
-      if (posts.length === 0) {
-        container.innerHTML = "<p>No posts found.</p>";
-      }
-    })
-    .catch(err => {
-      document.getElementById('blog-list').innerHTML =
-        "<p>Unable to load blog posts.</p>";
-      console.error(err);
-    });
-}
-
-renderBlogs();
+  renderBlogs();
 </script>
