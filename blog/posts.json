@@ -1,10 +1,18 @@
 {
-  "title_en": "How to Become an LIC Agent in Delhi, Ghaziabad and Noida",
-  "title_hi": "दिल्ली, गाज़ियाबाद और नोएडा में LIC एजेंट कैसे बनें",
-  "date": "2026-01-23",
-  "category": "LIC Career",
-  "description_en": "Step-by-step guide to become an LIC agent in Delhi, Ghaziabad and Noida.",
-  "description_hi": "दिल्ली, गाज़ियाबाद और नोएडा में LIC एजेंट बनने की पूरी प्रक्रिया।",
-  "slug_en": "how-to-become-lic-agent-delhi-ghaziabad-noida-en",
-  "slug_hi": "how-to-become-lic-agent-delhi-ghaziabad-noida-hi"
+  "posts": [
+    {
+      "title": "How to Become an LIC Agent in Delhi, Ghaziabad and Noida (English)",
+      "date": "2026-01-23",
+      "category": "LIC Career",
+      "description": "Step-by-step guide to become an LIC agent in Delhi, Ghaziabad and Noida.",
+      "slug": "how-to-become-lic-agent-delhi-ghaziabad-noida-en"
+    },
+    {
+      "title": "दिल्ली, गाज़ियाबाद और नोएडा में LIC एजेंट कैसे बनें (Hindi)",
+      "date": "2026-01-23",
+      "category": "LIC Career",
+      "description": "दिल्ली, गाज़ियाबाद और नोएडा में LIC एजेंट बनने की पूरी प्रक्रिया।",
+      "slug": "how-to-become-lic-agent-delhi-ghaziabad-noida-hi"
+    }
+  ]
 }
