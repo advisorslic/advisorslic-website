@@ -5,7 +5,7 @@ export async function onRequestGet({ request, env }) {
 
   if (!code) return new Response("Missing code", { status: 400 });
 
-  // Read oauth_state cookie
+  // validate state cookie
   const cookieHeader = request.headers.get("Cookie") || "";
   const match = cookieHeader.match(/(?:^|;\s*)oauth_state=([^;]+)/);
   const cookieState = match ? decodeURIComponent(match[1]) : null;
@@ -14,6 +14,7 @@ export async function onRequestGet({ request, env }) {
     return new Response("Invalid state", { status: 400 });
   }
 
+  // exchange token
   const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
@@ -33,24 +34,13 @@ export async function onRequestGet({ request, env }) {
     return new Response("Token exchange failed: " + JSON.stringify(tokenJson), { status: 400 });
   }
 
+  // send token via URL hash (fallback-safe)
   const msg = `authorization:github:success:${token}`;
-  const adminUrl = `https://advisorslic.in/admin/#/auth?token=${encodeURIComponent(msg)}`;
+  const redirect = `https://advisorslic.in/admin/#/auth?token=${encodeURIComponent(msg)}`;
 
-  // Try postMessage if opener exists, otherwise redirect to admin with token
   const html = `<!doctype html><html><body>
 <script>
-  (function () {
-    var msg = ${JSON.stringify(msg)};
-    var adminUrl = ${JSON.stringify(adminUrl)};
-    if (window.opener) {
-      window.opener.postMessage(msg, "https://advisorslic.in");
-      try { window.close(); } catch(e) {}
-      // if close is blocked, redirect anyway
-      setTimeout(function(){ window.location.replace(adminUrl); }, 300);
-    } else {
-      window.location.replace(adminUrl);
-    }
-  })();
+  window.location.replace(${JSON.stringify(redirect)});
 </script>
 Authorized.
 </body></html>`;
