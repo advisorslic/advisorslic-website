@@ -8,10 +8,10 @@ function setLang(lang) {
 }
 
 function renderBlogs() {
-  fetch('/blog/posts.json')
+  fetch('/blog/posts.json', { cache: 'no-store' })
     .then(res => res.json())
     .then(data => {
-      const posts = data.posts || [];
+      const posts = data.posts || [];   // ✅ IMPORTANT FIX
       const container = document.getElementById('blog-list');
       container.innerHTML = '';
 
@@ -28,6 +28,15 @@ function renderBlogs() {
           </div>
         `;
       });
+
+      if (posts.length === 0) {
+        container.innerHTML = "<p>No posts found.</p>";
+      }
+    })
+    .catch(err => {
+      document.getElementById('blog-list').innerHTML =
+        "<p>Unable to load blog posts.</p>";
+      console.error(err);
     });
 }
 
