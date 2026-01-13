@@ -6,7 +6,18 @@
     <title>Admin | Decap CMS</title>
   </head>
   <body>
-    <!-- Pin a stable version (avoid @latest) -->
+    <script>
+      (function () {
+        const hash = window.location.hash || "";
+        const m = hash.match(/token=([^&]+)/);
+        if (m) {
+          const msg = decodeURIComponent(m[1]);
+          window.postMessage(msg, window.location.origin);
+          history.replaceState(null, "", "/admin/#/");
+        }
+      })();
+    </script>
+
     <script src="https://unpkg.com/decap-cms@3.10.0/dist/decap-cms.js"></script>
   </body>
 </html>
