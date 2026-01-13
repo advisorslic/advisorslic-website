@@ -5,17 +5,15 @@ export async function onRequestGet({ request, env }) {
 
   if (!code) return new Response("Missing code", { status: 400 });
 
-  // Read oauth_state cookie set by /api/auth
+  // Read oauth_state cookie
   const cookieHeader = request.headers.get("Cookie") || "";
   const match = cookieHeader.match(/(?:^|;\s*)oauth_state=([^;]+)/);
   const cookieState = match ? decodeURIComponent(match[1]) : null;
 
-  // Must match
   if (!state || !cookieState || state !== cookieState) {
     return new Response("Invalid state", { status: 400 });
   }
 
-  // Exchange code for token (include redirect_uri + state)
   const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
     method: "POST",
     headers: { Accept: "application/json", "Content-Type": "application/json" },
@@ -35,18 +33,22 @@ export async function onRequestGet({ request, env }) {
     return new Response("Token exchange failed: " + JSON.stringify(tokenJson), { status: 400 });
   }
 
-  const ORIGIN = "https://advisorslic.in";
   const msg = `authorization:github:success:${token}`;
+  const adminUrl = `https://advisorslic.in/admin/#/auth?token=${encodeURIComponent(msg)}`;
 
+  // Try postMessage if opener exists, otherwise redirect to admin with token
   const html = `<!doctype html><html><body>
 <script>
   (function () {
     var msg = ${JSON.stringify(msg)};
+    var adminUrl = ${JSON.stringify(adminUrl)};
     if (window.opener) {
-      window.opener.postMessage(msg, ${JSON.stringify(ORIGIN)});
-      window.close();
+      window.opener.postMessage(msg, "https://advisorslic.in");
+      try { window.close(); } catch(e) {}
+      // if close is blocked, redirect anyway
+      setTimeout(function(){ window.location.replace(adminUrl); }, 300);
     } else {
-      document.body.innerText = "Authorized. Return to the Admin tab.";
+      window.location.replace(adminUrl);
     }
   })();
 </script>
@@ -56,7 +58,6 @@ Authorized.
   return new Response(html, {
     headers: {
       "Content-Type": "text/html; charset=utf-8",
-      // clear state cookie
       "Set-Cookie": "oauth_state=; Path=/; Max-Age=0; Secure; SameSite=Lax",
     },
   });
