@@ -5,17 +5,13 @@ export async function onRequestGet({ request, env }) {
 
   if (!code) return new Response("Missing code", { status: 400 });
 
-  // Read oauth_state cookie set by /api/auth
+  // Validate state from cookie set by /api/auth
   const cookieHeader = request.headers.get("Cookie") || "";
   const match = cookieHeader.match(/(?:^|;\s*)oauth_state=([^;]+)/);
   const cookieState = match ? decodeURIComponent(match[1]) : null;
 
-  // Validate state (must match cookie)
   if (!state || !cookieState || state !== cookieState) {
-    return new Response(
-      `Invalid state. state=${state} cookie=${cookieState}`,
-      { status: 400 }
-    );
+    return new Response(`Invalid state`, { status: 400 });
   }
 
   const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
@@ -34,10 +30,7 @@ export async function onRequestGet({ request, env }) {
   const token = tokenJson.access_token;
 
   if (!token) {
-    return new Response(
-      "Token exchange failed: " + JSON.stringify(tokenJson),
-      { status: 400 }
-    );
+    return new Response("Token exchange failed: " + JSON.stringify(tokenJson), { status: 400 });
   }
 
   const ORIGIN = "https://advisorslic.in";
@@ -51,7 +44,7 @@ export async function onRequestGet({ request, env }) {
       window.opener.postMessage(msg, ${JSON.stringify(ORIGIN)});
       window.close();
     } else {
-      document.body.innerText = "Authorized. Please return to the Admin tab.";
+      document.body.innerText = "Authorized. Return to Admin tab.";
     }
   })();
 </script>
@@ -61,7 +54,6 @@ Authorized.
   return new Response(html, {
     headers: {
       "Content-Type": "text/html; charset=utf-8",
-      // Clear cookie after success
       "Set-Cookie": "oauth_state=; Path=/; Max-Age=0; Secure; SameSite=Lax",
     },
   });
