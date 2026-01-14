@@ -3,6 +3,70 @@
 <head>
   <!-- SEO placeholders (will be updated by JS) -->
 <title id="seoTitle">Blog Post | Advisors LIC</title>
+  <script>
+  function setMeta(id, value) {
+    const el = document.getElementById(id);
+    if (el) el.setAttribute(el.tagName === "TITLE" ? "text" : "content", value);
+  }
+
+  function setSeoForPost(post, slug) {
+    const isHindi = slug.endsWith("-hi");
+    const cityKeywords = "Delhi, Noida, Ghaziabad";
+
+    const title = post?.title || slug;
+    const desc = (post?.description || (isHindi
+      ? "LIC एजेंट और बीमा सखी बनने की सही गाइड।"
+      : "Step-by-step guide for LIC Agent & Bima Sakhi."
+    )) + " | " + cityKeywords;
+
+    const canonical = `https://advisorslic.in/post.html?slug=${encodeURIComponent(slug)}`;
+
+    // Title
+    document.title = `${title} | Advisors LIC`;
+    document.getElementById("seoTitle").textContent = `${title} | Advisors LIC`;
+
+    // Description
+    document.getElementById("seoDesc").setAttribute("content", desc);
+
+    // Canonical
+    document.getElementById("canonicalLink").setAttribute("href", canonical);
+
+    // OG
+    document.getElementById("ogTitle").setAttribute("content", title);
+    document.getElementById("ogDesc").setAttribute("content", desc);
+    document.getElementById("ogUrl").setAttribute("content", canonical);
+
+    // Twitter
+    document.getElementById("twTitle").setAttribute("content", title);
+    document.getElementById("twDesc").setAttribute("content", desc);
+
+    // JSON-LD Schema (BlogPosting)
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": title,
+      "description": desc,
+      "datePublished": post?.date || "",
+      "author": { "@type": "Organization", "name": "Advisors LIC" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Advisors LIC",
+        "logo": { "@type": "ImageObject", "url": "https://advisorslic.in/favicon.png" }
+      },
+      "mainEntityOfPage": canonical
+    };
+
+    let s = document.getElementById("jsonld");
+    if (!s) {
+      s = document.createElement("script");
+      s.type = "application/ld+json";
+      s.id = "jsonld";
+      document.head.appendChild(s);
+    }
+    s.textContent = JSON.stringify(schema);
+  }
+</script>
+
 <meta id="seoDesc" name="description" content="Read the latest LIC Agent and Bima Sakhi blog posts." />
 
 <link id="canonicalLink" rel="canonical" href="https://advisorslic.in/post.html" />
