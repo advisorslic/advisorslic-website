@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://advisorslic.in/sitemap.xml
