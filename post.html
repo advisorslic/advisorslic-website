@@ -171,6 +171,8 @@
       const index = await fetchJson('blog/posts.json');
 const all = index.posts || [];
 const post = all.find(p => p.slug_en === slug || p.slug_hi === slug);
+      setSeoForPost(post, slug);
+
 
 let title = slug;
 if (post) title = (post.slug_hi === slug) ? post.title_hi : post.title_en;
