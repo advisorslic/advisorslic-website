@@ -246,53 +246,101 @@
 <script>
   let LANG = localStorage.getItem("blog_lang") || "hi";
 
-  function setLang(lang){
+  function setLang(lang) {
     LANG = lang;
-    localStorage.setItem("blog_lang",lang);
+    localStorage.setItem("blog_lang", lang);
     updateLangUI();
     renderBlogs();
   }
 
   function updateLangUI(){
-    btnHi.classList.toggle("active",LANG==="hi");
-    btnEn.classList.toggle("active",LANG==="en");
-    heroText.innerHTML = LANG==="hi"
-      ? "LIC Agent और Bima Sakhi बनने की पूरी जानकारी — Delhi, Noida, Ghaziabad"
-      : "Complete guidance to become LIC Agent & Bima Sakhi — Delhi, Noida, Ghaziabad";
+    const btnHi = document.getElementById("btnHi");
+    const btnEn = document.getElementById("btnEn");
+    const hero = document.getElementById("heroText");
+
+    if(btnHi) btnHi.classList.toggle("active", LANG === "hi");
+    if(btnEn) btnEn.classList.toggle("active", LANG === "en");
+
+    if(hero){
+      hero.innerHTML = (LANG === "hi")
+        ? `LIC <strong>Agent</strong> / <strong>Bima Sakhi</strong> बनने की पूरी गाइड — Eligibility, Documents, Training और IC-38 Exam (Delhi • Ghaziabad • Noida).`
+        : `Practical guides to become an <strong>LIC Agent</strong> / <strong>Bima Sakhi</strong> — eligibility, documents, training & IC-38 exam help (Delhi • Ghaziabad • Noida).`;
+    }
   }
 
-  function renderBlogs(){
-    fetch("/blog/posts.json",{cache:"no-store"})
-      .then(r=>r.json())
-      .then(data=>{
-        const posts=data.posts||[];
-        const q=searchBox.value.toLowerCase().trim();
-        blogList.innerHTML="";
+  function formatDate(d){
+    try{
+      return new Date(d).toLocaleDateString('en-IN',{year:'numeric',month:'short',day:'2-digit'});
+    } catch(e){ return ""; }
+  }
 
-        posts.forEach(p=>{
-          const title=LANG==="hi"?p.title_hi:p.title_en;
-          const desc=LANG==="hi"?p.description_hi:p.description_en;
-          const slug=LANG==="hi"?p.slug_hi:p.slug_en;
-          const hay=(title+" "+desc+" "+(p.category||"")).toLowerCase();
-          if(q && !hay.includes(q)) return;
+  function safeText(v){ return (v || "").toString(); }
 
-          blogList.innerHTML+=`
-            <article class="card">
-              <h2>${title}</h2>
-              <div class="meta">${p.category||""} • ${p.date||""}</div>
-              <p>${desc}</p>
-              <div class="actions">
-                <a class="readmore" href="/post.html?slug=${slug}">Read More</a>
-                <a class="apply" href="index.html#apply">Apply</a>
-              </div>
-            </article>`;
-        });
+  async function renderBlogs() {
+    const container = document.getElementById("blog-list");
+    const emptyBox = document.getElementById("emptyBox");
+    const searchEl = document.getElementById("searchBox");
+    const q = (searchEl?.value || "").toLowerCase().trim();
+
+    if(!container) return;
+
+    container.innerHTML = "";
+
+    try{
+      const res = await fetch("/blog/posts.json", { cache: "no-store" });
+      if(!res.ok) throw new Error("posts.json load failed: " + res.status);
+
+      const data = await res.json();
+
+      // ✅ KEY FIX: handle both formats safely
+      const posts = Array.isArray(data) ? data : (data.posts || []);
+
+      let visibleCount = 0;
+
+      posts.forEach(post => {
+        const title = LANG === "hi" ? post.title_hi : post.title_en;
+        const desc  = LANG === "hi" ? post.description_hi : post.description_en;
+        const slug  = LANG === "hi" ? post.slug_hi : post.slug_en;
+
+        const haystack = (safeText(title) + " " + safeText(desc) + " " + safeText(post.category)).toLowerCase();
+        if(q && !haystack.includes(q)) return;
+
+        visibleCount++;
+
+        const dateText = formatDate(post.date);
+        const category = safeText(post.category);
+
+        container.innerHTML += `
+          <article class="card">
+            <h2>${title || ""}</h2>
+            <div class="meta">
+              ${dateText ? `<span class="pill">📅 ${dateText}</span>` : ``}
+              ${category ? `<span class="pill">🏷️ ${category}</span>` : ``}
+            </div>
+            <p class="desc">${desc || ""}</p>
+            <div class="actions">
+              <a class="readmore" href="/post.html?slug=${encodeURIComponent(slug)}">Read More ➜</a>
+              <a class="apply" href="index.html#apply">Apply Now</a>
+            </div>
+          </article>
+        `;
       });
+
+      if(emptyBox) emptyBox.style.display = (visibleCount === 0) ? "block" : "none";
+
+    } catch(err){
+      console.error(err);
+      container.innerHTML = `<div class="empty">Unable to load blog posts. Check <code>/blog/posts.json</code>.</div>`;
+      if(emptyBox) emptyBox.style.display = "none";
+    }
   }
 
-  updateLangUI();
-  renderBlogs();
+  document.addEventListener("DOMContentLoaded", () => {
+    updateLangUI();
+    renderBlogs();
+  });
 </script>
+
 
 </body>
 </html>
