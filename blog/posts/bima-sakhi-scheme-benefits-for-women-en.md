@@ -31,6 +31,7 @@ Official authorization to work as LIC advisors after qualifying
 The term Bima Sakhi represents a woman who becomes a trusted insurance guide for families and communities.
 
 Why Is the Bima Sakhi Scheme Important for Women?
+
 1️⃣ Financial Independence
 
 The scheme helps women:
@@ -72,6 +73,7 @@ Work according to personal schedule
 Easy balance between family responsibilities and career
 
 Key Benefits of the Bima Sakhi Scheme
+
 ✅ 1. Unlimited Income Potential
 
 Commission-based earnings
