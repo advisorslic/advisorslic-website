@@ -1,5 +1,5 @@
 ---
-title: How to Become an LIC Agent in Delhi, Ghaziabad and Noida
+Title: How to Become an LIC Agent in Delhi, Ghaziabad and Noida
 date: 2026-01-23
 category: LIC Career
 description: Step-by-step guide to become an LIC agent in Delhi, Ghaziabad and Noida. Know eligibility, documents, process and contact details.
