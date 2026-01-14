@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://advisorslic.in/</loc>
+  </url>
+  <url>
+    <loc>https://advisorslic.in/blog</loc>
+  </url>
+
+  <!-- Blog posts -->
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=how-to-become-lic-agent-delhi-ghaziabad-noida-en</loc>
+    <lastmod>2026-01-23</lastmod>
+  </url>
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=how-to-become-lic-agent-delhi-ghaziabad-noida-hi</loc>
+    <lastmod>2026-01-23</lastmod>
+  </url>
+</urlset>
