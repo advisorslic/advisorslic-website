@@ -1,92 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- SEO placeholders (will be updated by JS) -->
-<title id="seoTitle">Blog Post | Advisors LIC</title>
-  <script>
-  function setMeta(id, value) {
-    const el = document.getElementById(id);
-    if (el) el.setAttribute(el.tagName === "TITLE" ? "text" : "content", value);
-  }
-
-  function setSeoForPost(post, slug) {
-    const isHindi = slug.endsWith("-hi");
-    const cityKeywords = "Delhi, Noida, Ghaziabad";
-
-    const title = post?.title || slug;
-    const desc = (post?.description || (isHindi
-      ? "LIC एजेंट और बीमा सखी बनने की सही गाइड।"
-      : "Step-by-step guide for LIC Agent & Bima Sakhi."
-    )) + " | " + cityKeywords;
-
-    const canonical = `https://advisorslic.in/post.html?slug=${encodeURIComponent(slug)}`;
-
-    // Title
-    document.title = `${title} | Advisors LIC`;
-    document.getElementById("seoTitle").textContent = `${title} | Advisors LIC`;
-
-    // Description
-    document.getElementById("seoDesc").setAttribute("content", desc);
-
-    // Canonical
-    document.getElementById("canonicalLink").setAttribute("href", canonical);
-
-    // OG
-    document.getElementById("ogTitle").setAttribute("content", title);
-    document.getElementById("ogDesc").setAttribute("content", desc);
-    document.getElementById("ogUrl").setAttribute("content", canonical);
-
-    // Twitter
-    document.getElementById("twTitle").setAttribute("content", title);
-    document.getElementById("twDesc").setAttribute("content", desc);
-
-    // JSON-LD Schema (BlogPosting)
-    const schema = {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": title,
-      "description": desc,
-      "datePublished": post?.date || "",
-      "author": { "@type": "Organization", "name": "Advisors LIC" },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Advisors LIC",
-        "logo": { "@type": "ImageObject", "url": "https://advisorslic.in/favicon.png" }
-      },
-      "mainEntityOfPage": canonical
-    };
-
-    let s = document.getElementById("jsonld");
-    if (!s) {
-      s = document.createElement("script");
-      s.type = "application/ld+json";
-      s.id = "jsonld";
-      document.head.appendChild(s);
-    }
-    s.textContent = JSON.stringify(schema);
-  }
-</script>
-
-<meta id="seoDesc" name="description" content="Read the latest LIC Agent and Bima Sakhi blog posts." />
-
-<link id="canonicalLink" rel="canonical" href="https://advisorslic.in/post.html" />
-
-<!-- Open Graph placeholders -->
-<meta id="ogTitle" property="og:title" content="Blog Post | Advisors LIC" />
-<meta id="ogDesc" property="og:description" content="Read the latest LIC blog post." />
-<meta id="ogUrl" property="og:url" content="https://advisorslic.in/post.html" />
-<meta property="og:type" content="article" />
-
-<!-- Twitter placeholders -->
-<meta name="twitter:card" content="summary" />
-<meta id="twTitle" name="twitter:title" content="Blog Post | Advisors LIC" />
-<meta id="twDesc" name="twitter:description" content="Read the latest LIC blog post." />
-
+  <!-- BASIC -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Blog Post | Advisors LIC</title>
+
+  <!-- SEO placeholders (updated by JS) -->
+  <title id="seoTitle">Blog Post | Advisors LIC</title>
+  <meta id="seoDesc" name="description" content="Read the latest LIC Agent and Bima Sakhi blog posts." />
+  <link id="canonicalLink" rel="canonical" href="https://advisorslic.in/post.html" />
+
+  <!-- Open Graph placeholders -->
+  <meta id="ogTitle" property="og:title" content="Blog Post | Advisors LIC" />
+  <meta id="ogDesc" property="og:description" content="Read the latest LIC blog post." />
+  <meta id="ogUrl" property="og:url" content="https://advisorslic.in/post.html" />
+  <meta property="og:type" content="article" />
+
+  <!-- Twitter placeholders -->
+  <meta name="twitter:card" content="summary" />
+  <meta id="twTitle" name="twitter:title" content="Blog Post | Advisors LIC" />
+  <meta id="twDesc" name="twitter:description" content="Read the latest LIC blog post." />
+
+  <!-- JSON-LD placeholders -->
+  <script type="application/ld+json" id="jsonld"></script>
+  <script type="application/ld+json" id="faqJsonLd"></script>
+
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
+
   <style>
     :root{--lic-blue:#0b3c8c;--lic-yellow:#f6c400;--lic-light:#f4f7fb;--text-dark:#1e1e1e;}
     *{box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
@@ -103,13 +44,138 @@
     .meta{font-size:12px;color:#6b6b6b;margin-bottom:18px}
     .content img{max-width:100%;border-radius:12px}
     .content a{color:var(--lic-blue);font-weight:800}
+    .content h2{color:var(--lic-blue);margin-top:22px}
+    .content h3{margin-top:16px}
     .cta{margin-top:24px;padding:16px;border-radius:14px;background:linear-gradient(120deg,var(--lic-blue),#124fb8);color:#fff}
     .cta a{display:inline-block;margin-top:10px;background:var(--lic-yellow);color:var(--lic-blue);font-weight:900;text-decoration:none;padding:12px 16px;border-radius:12px}
     footer{background:#0a2f6f;color:#fff;text-align:center;padding:22px 18px;font-size:13px}
     footer p{margin:6px 0}
     code{background:#f0f3f9;padding:2px 6px;border-radius:8px}
   </style>
+
+  <script>
+    // --------- SEO helpers ----------
+    function setSeoForPost(post, slug) {
+      const isHindi = slug.endsWith("-hi");
+      const cityKeywords = "Delhi, Noida, Ghaziabad";
+
+      const title = (post ? ((post.slug_hi === slug) ? post.title_hi : post.title_en) : slug);
+      const desc = (post ? ((post.slug_hi === slug) ? post.description_hi : post.description_en) : (isHindi
+        ? "LIC एजेंट और बीमा सखी बनने की सही गाइड।"
+        : "Step-by-step guide for LIC Agent & Bima Sakhi."
+      )) + " | " + cityKeywords;
+
+      const canonical = `https://advisorslic.in/post.html?slug=${encodeURIComponent(slug)}`;
+
+      // Title
+      document.title = `${title} | Advisors LIC`;
+      const seoTitleEl = document.getElementById("seoTitle");
+      if (seoTitleEl) seoTitleEl.textContent = `${title} | Advisors LIC`;
+
+      // Description
+      const seoDescEl = document.getElementById("seoDesc");
+      if (seoDescEl) seoDescEl.setAttribute("content", desc);
+
+      // Canonical
+      const canonicalEl = document.getElementById("canonicalLink");
+      if (canonicalEl) canonicalEl.setAttribute("href", canonical);
+
+      // OG
+      const ogTitle = document.getElementById("ogTitle");
+      const ogDesc  = document.getElementById("ogDesc");
+      const ogUrl   = document.getElementById("ogUrl");
+      if (ogTitle) ogTitle.setAttribute("content", title);
+      if (ogDesc)  ogDesc.setAttribute("content", desc);
+      if (ogUrl)   ogUrl.setAttribute("content", canonical);
+
+      // Twitter
+      const twTitle = document.getElementById("twTitle");
+      const twDesc  = document.getElementById("twDesc");
+      if (twTitle) twTitle.setAttribute("content", title);
+      if (twDesc)  twDesc.setAttribute("content", desc);
+
+      // BlogPosting schema
+      const schema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": title,
+        "description": desc,
+        "datePublished": post?.date || "",
+        "author": { "@type": "Organization", "name": "Advisors LIC" },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Advisors LIC",
+          "logo": { "@type": "ImageObject", "url": "https://advisorslic.in/favicon.png" }
+        },
+        "mainEntityOfPage": canonical
+      };
+
+      const jsonld = document.getElementById("jsonld");
+      if (jsonld) jsonld.textContent = JSON.stringify(schema);
+    }
+
+    // --------- FAQ Schema (auto) ----------
+    function escapeHtml(str){
+      return (str || "").toString()
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;");
+    }
+
+    function buildFaqSchemaFromContent() {
+      const content = document.getElementById("content");
+      if(!content) return null;
+
+      const headings = Array.from(content.querySelectorAll("h2, h3"));
+      const faqHeading = headings.find(h => {
+        const t = (h.textContent || "").toLowerCase();
+        return t.includes("faq") || t.includes("faqs") || t.includes("अक्सर");
+      });
+      if(!faqHeading) return null;
+
+      const items = [];
+      let node = faqHeading.nextElementSibling;
+
+      while(node){
+        if(node.tagName === "H2") break;
+
+        // H3 question + next P answer
+        if(node.tagName === "H3"){
+          const q = (node.textContent || "").trim();
+          const next = node.nextElementSibling;
+          const a = next && next.tagName === "P" ? (next.textContent || "").trim() : "";
+          if(q && a) items.push({ q, a });
+        }
+
+        node = node.nextElementSibling;
+      }
+
+      if(items.length === 0) return null;
+
+      return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": items.slice(0, 8).map(({q,a}) => ({
+          "@type": "Question",
+          "name": q,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": escapeHtml(a)
+          }
+        }))
+      };
+    }
+
+    function injectFaqSchema(){
+      const el = document.getElementById("faqJsonLd");
+      if(!el) return;
+      const schema = buildFaqSchemaFromContent();
+      el.textContent = schema ? JSON.stringify(schema) : "";
+    }
+  </script>
 </head>
+
 <body>
   <header>
     <div class="header-inner">
@@ -139,7 +205,7 @@
     </div>
   </main>
 
-  <footer><p>© 2025 Advisors LIC | Blog</p></footer>
+  <footer><p>© 2026 Advisors LIC | Blog</p></footer>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
@@ -161,6 +227,7 @@
       try{ return new Date(d).toLocaleDateString('en-IN',{year:'numeric',month:'short',day:'2-digit'}); }
       catch(e){ return ''; }
     }
+
     async function loadPost(){
       const slug = qs('slug');
       if(!slug){
@@ -168,25 +235,35 @@
         document.getElementById('content').innerHTML = 'Missing slug.';
         return;
       }
+
       const index = await fetchJson('blog/posts.json');
-const all = index.posts || [];
-const post = all.find(p => p.slug_en === slug || p.slug_hi === slug);
+      const all = index.posts || [];
+      const post = all.find(p => p.slug_en === slug || p.slug_hi === slug);
+
+      // SEO tags + BlogPosting schema
       setSeoForPost(post, slug);
 
+      // Title on page
+      let pageTitle = slug;
+      if (post) pageTitle = (post.slug_hi === slug) ? post.title_hi : post.title_en;
+      document.getElementById('title').textContent = pageTitle;
 
-let title = slug;
-if (post) title = (post.slug_hi === slug) ? post.title_hi : post.title_en;
+      // Meta line under title
+      document.getElementById('meta').textContent =
+        post ? (formatDate(post.date) + (post.category ? (' • ' + post.category) : '')) : '';
 
-document.getElementById('title').textContent = title;
-
-      document.getElementById('meta').textContent = post ? (formatDate(post.date) + (post.category ? (' • ' + post.category) : '')) : '';
+      // Load markdown + render
       const md = await fetchText('blog/posts/' + encodeURIComponent(slug) + '.md');
       document.getElementById('content').innerHTML = marked.parse(md);
-      document.title = (post && post.title ? post.title : slug) + ' | Advisors LIC';
+
+      // Inject FAQ schema if FAQ section exists
+      injectFaqSchema();
     }
+
     loadPost().catch(err=>{
       document.getElementById('title').textContent = 'Post not found';
-      document.getElementById('content').innerHTML = 'Unable to load this post. Please check the file exists in <code>blog/posts/</code>.';
+      document.getElementById('content').innerHTML =
+        'Unable to load this post. Please check the file exists in <code>blog/posts/</code>.';
       console.error(err);
     });
   </script>
