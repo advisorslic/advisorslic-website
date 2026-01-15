@@ -118,8 +118,11 @@ Insurance laws and guidelines
 
 Compliance requirements for agents
 
-IC-38 Syllabus Overview
+---
+###
 
+IC-38 Syllabus Overview
+---
 The syllabus mainly includes:
 
 Basics of insurance
@@ -182,8 +185,11 @@ You revise regularly
 
 You stay calm during the exam
 
-Who Finds the IC-38 Exam Easy?
+---
+###
 
+Who Finds the IC-38 Exam Easy?
+---
 The IC-38 exam is especially suitable for:
 
 Homemakers
