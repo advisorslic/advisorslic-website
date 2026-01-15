@@ -36,8 +36,8 @@ The purpose of the IC-38 exam is to ensure that insurance advisors:
 - **Total Time:** 60 minutes (1 hour)  
 
 ### ✅ Passing Marks
-- **70% marks required**  
-- Minimum **35 correct answers out of 50**
+- **35% marks required**  
+- Minimum **18 correct answers out of 50**
 
 ### ❌ Negative Marking
 - **No negative marking**  
