@@ -186,7 +186,7 @@ The IC-38 exam consists of **50 multiple-choice questions (MCQs)**.
 The total duration of the IC-38 exam is **60 minutes (1 hour)**.
 
 ### What are the passing marks for the IC-38 exam?
-Candidates must score **70% marks**, which means **35 correct answers out of 50**.
+Candidates must score **35% marks**, which means **18 correct answers out of 50**.
 
 ### Is there negative marking in the IC-38 exam?
 No, there is **no negative marking** in the IC-38 examination.
