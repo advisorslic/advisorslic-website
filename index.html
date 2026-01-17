@@ -854,6 +854,17 @@
     window.addEventListener("load", ()=>{
       buildDots();
     });
+    <script>
+  // existing slider functions ऊपर होंगे
+  // goToSlide(), slideNext(), updateDots(), buildDots() etc.
+
+  /* 🔁 Auto Slide – add THIS at the end */
+  window.addEventListener("load", () => {
+    buildDots();              // dots बनाता है
+    setInterval(slideNext, 4000); // हर 4 सेकंड में next slide
+  });
+</script>
+
   </script>
 </body>
 </html>
