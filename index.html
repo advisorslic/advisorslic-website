@@ -16,10 +16,13 @@
       --lic-yellow:#f6c400;
       --lic-light:#f4f7fb;
       --text-dark:#1e1e1e;
+      --border:rgba(0,0,0,.12);
     }
     *{box-sizing:border-box;font-family:"Segoe UI",Arial,sans-serif}
     body{margin:0;background:var(--lic-light);color:var(--text-dark);line-height:1.6}
     a{color:inherit}
+
+    /* Top strip */
     .top-strip{
       background:var(--lic-blue);
       color:#fff;
@@ -35,14 +38,21 @@
       gap:12px;
       flex-wrap:wrap;
     }
-    .disclaimer-mini{
-      font-size:12px;
-      opacity:.95;
+    .top-email{
+      margin-left:auto;
+      font-size:14px;
+      white-space:nowrap;
+    }
+    @media (max-width:600px){
+      .top-email{ margin-left:0; }
     }
 
     header{
       background:#fff;
       border-bottom:4px solid var(--lic-yellow);
+      position:sticky;
+      top:0;
+      z-index:1000;
     }
     .header-inner{
       max-width:1200px;
@@ -52,6 +62,7 @@
       justify-content:space-between;
       padding:14px 20px;
       gap:16px;
+      position:relative;
     }
     .logo{
       display:flex;
@@ -71,14 +82,28 @@
       letter-spacing:.5px;
     }
     .logo small{color:#3a3a3a}
-    nav a{
+
+    /* Desktop nav */
+    .nav-links a{
       margin-left:18px;
       text-decoration:none;
       color:var(--lic-blue);
       font-weight:700;
       font-size:15px;
     }
-    nav a:hover{text-decoration:underline}
+    .nav-links a:hover{text-decoration:underline}
+
+    /* Mobile hamburger */
+    .menu-toggle{
+      display:none;
+      border:0;
+      background:transparent;
+      font-size:28px;
+      cursor:pointer;
+      color:var(--lic-blue);
+      padding:8px 10px;
+      border-radius:10px;
+    }
 
     .hero{
       background:linear-gradient(120deg,var(--lic-blue),#124fb8);
@@ -202,14 +227,6 @@
       z-index:999;
     }
 
-    /* Mobile */
-    @media (max-width:900px){
-      .hero-inner{grid-template-columns:1fr}
-      nav{display:none}
-      .hero{padding:48px 16px}
-      .hero h1{font-size:32px}
-    }
-  
     /* CTA flow */
     .cta-link{
       display:inline-flex;
@@ -249,6 +266,47 @@
       0%,100%{transform:translateY(0); box-shadow:0 10px 25px rgba(0,0,0,.15)}
       50%{transform:translateY(-2px); box-shadow:0 18px 34px rgba(0,0,0,.20)}
     }
+
+    /* Slider (Why Choose) */
+    .slider-wrap{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .slide-btn{
+      border:0;
+      background:#fff;
+      color:var(--lic-blue);
+      font-size:34px;
+      width:44px;height:44px;
+      border-radius:12px;
+      cursor:pointer;
+      box-shadow:0 8px 18px rgba(0,0,0,.08);
+      flex:0 0 auto;
+    }
+    .slider{
+      display:flex;
+      gap:14px;
+      overflow:hidden;
+      scroll-behavior:smooth;
+      width:100%;
+    }
+    .slide{
+      min-width:calc(33.333% - 10px);
+    }
+    .dots{
+      margin-top:12px;
+      display:flex;
+      justify-content:center;
+      gap:8px;
+    }
+    .dot{
+      width:10px;height:10px;
+      border-radius:999px;
+      background:rgba(11,60,140,.25);
+      cursor:pointer;
+    }
+    .dot.active{ background:var(--lic-blue); }
 
     /* Modal (Study Material Popup) */
     .modal-backdrop{
@@ -302,6 +360,45 @@
       text-align:center;
     }
 
+    /* Responsive */
+    @media (max-width:900px){
+      .hero-inner{grid-template-columns:1fr}
+      .hero{padding:48px 16px}
+      .hero h1{font-size:32px}
+
+      /* Mobile nav dropdown */
+      .menu-toggle{ display:block; }
+
+      .nav-links{
+        display:none;
+        position:absolute;
+        top:86px;
+        right:16px;
+        background:#fff;
+        border:1px solid var(--border);
+        border-radius:14px;
+        padding:10px;
+        width:min(300px, calc(100vw - 32px));
+        box-shadow:0 12px 28px rgba(0,0,0,.18);
+        z-index:9999;
+      }
+      .nav-links.open{ display:block; }
+
+      .nav-links a{
+        display:block;
+        padding:10px 12px;
+        margin:0;
+        border-radius:10px;
+        text-decoration:none;
+      }
+      .nav-links a:hover{
+        background:rgba(11,60,140,.06);
+        text-decoration:none;
+      }
+
+      /* Slider on mobile */
+      .slide{ min-width:100%; }
+    }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -321,7 +418,8 @@
   <div class="top-strip">
     <div class="inner">
       <div>Call / WhatsApp: <strong>9718017880</strong></div>
-          </div>
+      <div class="top-email">Email: <strong>a.chauhan1@licindia.com</strong></div>
+    </div>
   </div>
 
   <header>
@@ -333,7 +431,11 @@
           <small>Agent &amp; Bima Sakhi Recruitment</small>
         </div>
       </div>
-      <nav aria-label="Primary">
+
+      <!-- Mobile Menu Button -->
+      <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMenu()">☰</button>
+
+      <nav class="nav-links" id="siteNav" aria-label="Primary">
         <a href="#">Home</a>
         <a href="#cities">Cities</a>
         <a href="#career">Career</a>
@@ -354,7 +456,7 @@
         <h2>India’s Most Trusted Life Insurance Career Opportunity</h2>
         <div class="hindi-line">गाजियाबाद, नोएडा और दिल्ली NCR में LIC एजेंट / बीमा सखी बनें</div>
         <p>LIC भारत की सबसे भरोसेमंद बीमा कंपनी है। LIC एजेंट या बीमा सखी बनकर असीमित आय, सामाजिक सम्मान और सुरक्षित भविष्य पाएं।</p>
-        <p>Join LIC as an Agent or Bima Sakhi and enjoy unlimited income, social respect, flexible working hours, and long-term career growth.</p>
+        <p>Join LIC as an Agent or Bima Sakhi and enjoy flexible working hours and long-term career growth.</p>
 
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px">
           <a href="#apply" class="cta-link cta-primary" aria-label="Apply Now">✅ Apply Now</a>
@@ -362,7 +464,6 @@
             📘 Get Free Study Material
           </button>
         </div>
-
       </div>
 
       <div class="box apply-highlight" id="apply">
@@ -370,6 +471,7 @@
         <form onsubmit="sendWhatsApp(); return false;">
           <input aria-label="Full Name" type="text" id="name" placeholder="Full Name" required />
           <input aria-label="Mobile Number" type="tel" id="mobile" placeholder="Mobile Number" required />
+          <input aria-label="Address" type="text" id="address" placeholder="Address / पता (Area, City)" required />
           <select aria-label="Select Role" id="role" required>
             <option value="">Select Role</option>
             <option value="LIC Agent">LIC Agent</option>
@@ -382,37 +484,66 @@
     </div>
   </section>
 
-
+  <section id="cities">
+    <div class="container">
+      <h2>LIC Agent &amp; Bima Sakhi Recruitment – Ghaziabad, Noida &amp; Delhi NCR</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Ghaziabad <small>गाजियाबाद</small></h3>
+          <p>Recruitment assistance and guidance for LIC Agent / Bima Sakhi in Ghaziabad.</p>
+        </div>
+        <div class="card">
+          <h3>Noida <small>नोएडा</small></h3>
+          <p>Start your LIC journey in Noida with proper guidance and step-by-step support.</p>
+        </div>
+        <div class="card">
+          <h3>Delhi NCR <small>दिल्ली NCR</small></h3>
+          <p>Guidance for candidates across Delhi NCR for LIC Agent / Bima Sakhi process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="career">
     <div class="container">
       <h2>Why Choose a Career in LIC?</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Unlimited Income</h3>
-          <ul>
-            <li>Attractive commission structure</li>
-            <li>Renewal income every year</li>
-            <li>Bonuses &amp; incentives</li>
-          </ul>
+
+      <div class="slider-wrap">
+        <button class="slide-btn" type="button" onclick="slidePrev()" aria-label="Previous">‹</button>
+
+        <div class="slider" id="careerSlider">
+          <div class="slide card">
+            <h3>Unlimited Income</h3>
+            <ul>
+              <li>Attractive commission structure</li>
+              <li>Renewal income every year</li>
+              <li>Bonuses &amp; incentives</li>
+            </ul>
+          </div>
+
+          <div class="slide card">
+            <h3>Growth &amp; Recognition</h3>
+            <ul>
+              <li>Club memberships</li>
+              <li>Rewards &amp; recognition</li>
+              <li>Long-term career development</li>
+            </ul>
+          </div>
+
+          <div class="slide card">
+            <h3>Work Flexibility</h3>
+            <ul>
+              <li>Be your own boss</li>
+              <li>Part-time or full-time</li>
+              <li>Suitable for men &amp; women</li>
+            </ul>
+          </div>
         </div>
-        <div class="card">
-          <h3>Growth &amp; Recognition</h3>
-          <ul>
-            <li>Club memberships</li>
-            <li>Rewards &amp; recognition</li>
-            <li>Long-term career development</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Work Flexibility</h3>
-          <ul>
-            <li>Be your own boss</li>
-            <li>Part-time or full-time</li>
-            <li>Suitable for men &amp; women</li>
-          </ul>
-        </div>
+
+        <button class="slide-btn" type="button" onclick="slideNext()" aria-label="Next">›</button>
       </div>
+
+      <div class="dots" id="careerDots" aria-label="Slider dots"></div>
     </div>
   </section>
 
@@ -476,7 +607,6 @@
     </div>
   </section>
 
-  
   <section id="fees-docs">
     <div class="container">
       <h2>Fee Structure & Required Documents</h2>
@@ -502,7 +632,6 @@
       </div>
     </div>
   </section>
-
 
   <section id="study">
     <div class="container">
@@ -554,7 +683,6 @@
     </div>
   </section>
 
-  
   <!-- Study Material Popup Modal -->
   <div class="modal-backdrop" id="studyModal" role="dialog" aria-modal="true" aria-labelledby="studyModalTitle" onclick="backdropClose(event)">
     <div class="modal" onclick="event.stopPropagation()">
@@ -601,7 +729,6 @@
     </div>
   </div>
 
-
   <div class="highlight">
     <h2>Start Your Respected Career Journey Today</h2>
     <p>Serving LIC aspirants in Ghaziabad, Noida, Greater Noida, Indirapuram, Vaishali, Vasundhara, East Delhi &amp; Central Delhi.</p>
@@ -613,8 +740,33 @@
   </footer>
 
   <script>
+    /* Mobile menu */
+    function toggleMenu(){
+      const nav = document.getElementById("siteNav");
+      const btn = document.querySelector(".menu-toggle");
+      const open = nav.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    document.addEventListener("click", function(e){
+      const nav = document.getElementById("siteNav");
+      const btn = document.querySelector(".menu-toggle");
+      if(!nav || !btn) return;
 
-    // Study Popup (Modal)
+      if(nav.classList.contains("open") && !nav.contains(e.target) && !btn.contains(e.target)){
+        nav.classList.remove("open");
+        btn.setAttribute("aria-expanded","false");
+      }
+    });
+    document.addEventListener("click", function(e){
+      if(e.target.closest && e.target.closest("#siteNav a")){
+        const nav = document.getElementById("siteNav");
+        const btn = document.querySelector(".menu-toggle");
+        nav.classList.remove("open");
+        btn.setAttribute("aria-expanded","false");
+      }
+    });
+
+    /* Study Popup (Modal) */
     function openStudyPopup(){
       var modal = document.getElementById('studyModal');
       if(!modal) return;
@@ -625,35 +777,35 @@
         if(el) el.focus();
       }, 50);
     }
-
     function closeStudyPopup(){
       var modal = document.getElementById('studyModal');
       if(!modal) return;
       modal.classList.remove('show');
       document.body.style.overflow = '';
     }
-
     function backdropClose(e){
       if(e.target && e.target.id === 'studyModal'){
         closeStudyPopup();
       }
     }
-
     document.addEventListener('keydown', function(e){
       if(e.key === 'Escape'){
         closeStudyPopup();
       }
     });
 
+    /* WhatsApp lead submit */
     function sendWhatsApp(){
       var name = document.getElementById('name').value.trim();
       var mobile = document.getElementById('mobile').value.trim();
+      var address = document.getElementById('address').value.trim();
       var role = document.getElementById('role').value;
 
       var text =
         'New LIC Application%0A' +
         'Name: ' + encodeURIComponent(name) + '%0A' +
         'Mobile: ' + encodeURIComponent(mobile) + '%0A' +
+        'Address: ' + encodeURIComponent(address) + '%0A' +
         'Role: ' + encodeURIComponent(role);
 
       window.open('https://wa.me/919718017880?text=' + text, '_blank');
@@ -678,6 +830,52 @@
 
       window.open('https://wa.me/919718017880?text=' + text, '_blank');
     }
+
+    /* Slider logic (Why Choose) */
+    const slider = () => document.getElementById("careerSlider");
+    let slideIndex = 0;
+
+    function buildDots(){
+      const s = slider();
+      if(!s) return;
+      const slides = s.querySelectorAll(".slide");
+      const dots = document.getElementById("careerDots");
+      dots.innerHTML = "";
+      slides.forEach((_, i)=>{
+        const d = document.createElement("div");
+        d.className = "dot" + (i===0 ? " active" : "");
+        d.onclick = ()=>goToSlide(i);
+        dots.appendChild(d);
+      });
+    }
+
+    function updateDots(){
+      const dots = document.querySelectorAll("#careerDots .dot");
+      dots.forEach((d,i)=>d.classList.toggle("active", i===slideIndex));
+    }
+
+    function goToSlide(i){
+      const s = slider();
+      const slides = s.querySelectorAll(".slide");
+      slideIndex = Math.max(0, Math.min(i, slides.length-1));
+      s.scrollLeft = slides[0].offsetWidth * slideIndex;
+      updateDots();
+    }
+
+    function slideNext(){
+      const s = slider();
+      const slides = s.querySelectorAll(".slide");
+      goToSlide((slideIndex + 1) % slides.length);
+    }
+    function slidePrev(){
+      const s = slider();
+      const slides = s.querySelectorAll(".slide");
+      goToSlide((slideIndex - 1 + slides.length) % slides.length);
+    }
+
+    window.addEventListener("load", ()=>{
+      buildDots();
+    });
   </script>
 </body>
 </html>
