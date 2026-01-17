@@ -479,48 +479,55 @@
   </section>
 
 
-  <section id="career">
-    <div class="container">
-      <h2>Why Choose a Career in LIC?</h2>
+ <section id="career" style="padding:56px 20px;">
+  <div class="container" style="max-width:1200px;margin:auto;">
+    <h2 style="text-align:center;color:#0b3c8c;font-size:30px;margin:0 0 34px;">
+      Why Choose a Career in LIC?
+    </h2>
 
-      <div class="slider-wrap">
-        <button class="slide-btn" type="button" onclick="slidePrev()" aria-label="Previous">‹</button>
+    <div class="lic-slider" aria-label="Career benefits slider">
+      <button class="lic-nav lic-prev" type="button" aria-label="Previous" onclick="licPrev()">‹</button>
 
-        <div class="slider" id="careerSlider">
-          <div class="slide card">
+      <div class="lic-viewport">
+        <div class="lic-track" id="licTrack">
+          <!-- Slide 1 -->
+          <article class="lic-slide">
             <h3>Unlimited Income</h3>
             <ul>
               <li>Attractive commission structure</li>
               <li>Renewal income every year</li>
-              <li>Bonuses &amp; incentives</li>
+              <li>Bonuses & incentives</li>
             </ul>
-          </div>
+          </article>
 
-          <div class="slide card">
-            <h3>Growth &amp; Recognition</h3>
+          <!-- Slide 2 -->
+          <article class="lic-slide">
+            <h3>Growth & Recognition</h3>
             <ul>
               <li>Club memberships</li>
-              <li>Rewards &amp; recognition</li>
+              <li>Rewards & recognition</li>
               <li>Long-term career development</li>
             </ul>
-          </div>
+          </article>
 
-          <div class="slide card">
+          <!-- Slide 3 -->
+          <article class="lic-slide">
             <h3>Work Flexibility</h3>
             <ul>
               <li>Be your own boss</li>
               <li>Part-time or full-time</li>
-              <li>Suitable for men &amp; women</li>
+              <li>Suitable for men & women</li>
             </ul>
-          </div>
+          </article>
         </div>
-
-        <button class="slide-btn" type="button" onclick="slideNext()" aria-label="Next">›</button>
       </div>
 
-      <div class="dots" id="careerDots" aria-label="Slider dots"></div>
+      <button class="lic-nav lic-next" type="button" aria-label="Next" onclick="licNext()">›</button>
     </div>
-  </section>
+
+    <div class="lic-dots" id="licDots" aria-label="Slider dots"></div>
+  </div>
+</section>
 
   <section id="process">
     <div class="container">
