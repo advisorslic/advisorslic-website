@@ -832,12 +832,13 @@
     }
 
     function goToSlide(i){
-      const s = slider();
-      const slides = s.querySelectorAll(".slide");
-      slideIndex = Math.max(0, Math.min(i, slides.length-1));
-      s.scrollLeft = slides[0].offsetWidth * slideIndex;
-      updateDots();
-    }
+  const s = slider();
+  const slides = s.querySelectorAll(".slide");
+  slideIndex = Math.max(0, Math.min(i, slides.length-1));
+  const slideWidth = slides[0].getBoundingClientRect().width;
+  s.scrollLeft = slideWidth * slideIndex;
+  updateDots();
+}
 
     function slideNext(){
       const s = slider();
