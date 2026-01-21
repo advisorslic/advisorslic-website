@@ -1,17 +1,4 @@
----
-title: "LIC Special Revival Campaign 2026: Revive Lapsed Policy in Delhi, Noida & Ghaziabad"
-description: "Revive your lapsed LIC policy during the Special Revival Campaign 2026 in Delhi NCR. Know eligibility, benefits, steps, documents and FAQs."
-date: 2026-01-27
-category: LIC Revival Campaign
-location: Delhi, Noida, Ghaziabad
-keywords:
-  - LIC Special Revival Campaign
-  - LIC policy revival Delhi
-  - revive lapsed LIC policy Noida
-  - LIC revival Ghaziabad
-  - LIC late fee concession
-  - LIC policy revival Delhi NCR
----
+
 
 # LIC Special Revival Campaign 2026: Revive Lapsed Policy in Delhi, Noida & Ghaziabad
 
