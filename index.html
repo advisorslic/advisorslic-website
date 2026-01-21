@@ -7,6 +7,25 @@
   <meta name="keywords" content="LIC Agent Recruitment Ghaziabad, LIC Agent Noida, LIC Agent Delhi NCR, Bima Sakhi Recruitment, LIC Career Ghaziabad, LIC Advisor Noida, LIC Agent Apply" />
   <meta name="author" content="LIC Development Officer" />
   <meta name="robots" content="index, follow" />
+  
+<!-- LIC Special Revival Campaign Strip (Below Header) -->
+<div class="revival-ticker" role="region" aria-label="LIC Revival Campaign Notice">
+  <div class="revival-ticker__track">
+    <div class="revival-ticker__item">
+      📢 LIC Special Revival Campaign (01 Jan 2026 – 02 Mar 2026) |
+      Late Fee Concession up to 30% |
+      Delhi • Noida • Ghaziabad |
+      Call / WhatsApp: 9718017880
+    </div>
+    <!-- duplicate for smooth loop -->
+    <div class="revival-ticker__item" aria-hidden="true">
+      📢 LIC Special Revival Campaign (01 Jan 2026 – 02 Mar 2026) |
+      Late Fee Concession up to 30% |
+      Delhi • Noida • Ghaziabad |
+      Call / WhatsApp: 9718017880
+    </div>
+  </div>
+</div>
 
   <title>Career in LIC – Agent & Bima Sakhi Recruitment (Ghaziabad, Noida, Delhi NCR)</title>
 
@@ -104,6 +123,43 @@
       padding:8px 10px;
       border-radius:10px;
     }
+/* Revival Campaign Strip (Below Header) */
+.revival-ticker{
+  position: relative;   /* 🔴 NOT sticky */
+  z-index: 500;
+  background: #0b3c8c;
+  color: #fff;
+  overflow: hidden;
+  border-bottom: 3px solid #f6c400;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.revival-ticker__track{
+  display: flex;
+  width: max-content;
+  animation: tickerMove 18s linear infinite;
+}
+
+.revival-ticker__item{
+  white-space: nowrap;
+  padding: 0 28px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: .2px;
+}
+
+@keyframes tickerMove{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Mobile */
+@media (max-width:600px){
+  .revival-ticker{ height: 40px; }
+  .revival-ticker__item{ font-size: 12px; padding: 0 18px; }
+}
 
     .hero{
       background:linear-gradient(120deg,var(--lic-blue),#124fb8);
