@@ -1,14 +1,16 @@
 <!-- =========================
-     BLOG POST (ENGLISH) - LIC Special Revival Campaign
-     File: blog/posts/lic-special-revival-campaign-2026-delhi-noida-ghaziabad-en.html
-     ========================= -->
+  BLOG POST (ENGLISH) - LIC Special Revival Campaign
+  File: blog/posts/lic-special-revival-campaign-2026-delhi-noida-ghaziabad-en.html
+  ========================= -->
 
 <section class="blog-post" id="lic-special-revival-campaign">
   <header class="post-header">
     <h1>LIC Special Revival Campaign 2026: Revive Lapsed Policy in Delhi, Noida &amp; Ghaziabad</h1>
+
     <p class="post-subtitle">
-      Missed premiums and your LIC policy got lapsed? This campaign is a chance to <strong>revive your LIC policy</strong>
-      with possible <strong>late-fee concession</strong> (as per LIC rules &amp; eligibility) in <strong>Delhi NCR</strong>.
+      Missed premiums and your LIC policy got lapsed? This campaign is a chance to
+      <strong>revive your LIC policy</strong> with possible <strong>late-fee concession</strong>
+      (as per LIC rules &amp; eligibility) in <strong>Delhi NCR</strong>.
     </p>
 
     <div class="post-meta">
@@ -20,7 +22,6 @@
   <hr />
 
   <article class="post-content">
-
     <h2>What is LIC Special Revival Campaign?</h2>
     <p>
       The <strong>LIC Special Revival Campaign</strong> is a limited-period opportunity where eligible lapsed LIC policies
@@ -76,7 +77,7 @@
     <div class="post-cta">
       <p><strong>Call / WhatsApp:</strong> 9718017880</p>
       <p><strong>Email:</strong> a.chauhan1@licindia.com</p>
-      <a class="cta-button" href="index.html#apply">✅ Get Help / Apply for Assistance</a>
+      <a class="cta-button" href="../../index.html#apply">✅ Get Help / Apply for Assistance</a>
     </div>
 
     <hr />
@@ -107,11 +108,10 @@
     <p>
       Timeline varies based on documents, verification, and whether medical requirements are needed. After completion, confirmation is issued as per process.
     </p>
-
   </article>
 </section>
 
-<!-- OPTIONAL: Basic Styling (paste inside your CSS if needed) -->
+<!-- OPTIONAL: Basic Styling (paste inside your main CSS file if possible) -->
 <style>
   .blog-post{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:16px;padding:22px;line-height:1.75}
   .post-header h1{margin:0 0 8px;color:#0b3c8c;font-size:28px;line-height:1.2}
@@ -123,4 +123,6 @@
   .post-cta p{margin:6px 0}
   .cta-button{display:inline-block;margin-top:10px;background:#f6c400;color:#0b3c8c;font-weight:900;text-decoration:none;padding:12px 16px;border-radius:12px}
   hr{border:0;border-top:1px solid rgba(0,0,0,.08);margin:18px 0}
+</style>
+
 </style>
