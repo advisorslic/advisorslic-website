@@ -2,9 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://advisorslic.in/</loc>
+    <lastmod>2026-01-23</lastmod>
   </url>
   <url>
     <loc>https://advisorslic.in/blog</loc>
+    <lastmod>2026-01-23</lastmod>
   </url>
 
   <!-- Blog posts -->
@@ -15,5 +17,29 @@
   <url>
     <loc>https://advisorslic.in/post.html?slug=how-to-become-lic-agent-delhi-ghaziabad-noida-hi</loc>
     <lastmod>2026-01-23</lastmod>
+  </url>
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=bima-sakhi-scheme-benefits-for-women-en</loc>
+    <lastmod>2026-01-24</lastmod>
+  </url>
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=bima-sakhi-yojana-mahilaon-ke-liye-fayde-hi</loc>
+    <lastmod>2026-01-24</lastmod>
+  </url>
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=ic-38-exam-preparation-delhi-noida-ghaziabad-en</loc>
+    <lastmod>2026-01-26</lastmod>
+  </url>
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=ic-38-pariksha-taiyari-delhi-noida-ghaziabad-hi</loc>
+    <lastmod>2026-01-26</lastmod>
+  </url>
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=lic-agent-commission-structure-benefits-earnings-delhi-ghaziabad-noida-en</loc>
+    <lastmod>2026-01-24</lastmod>
+  </url>
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=lic-agent-commission-fayde-kamai-delhi-ghaziabad-noida-hi</loc>
+    <lastmod>2026-01-24</lastmod>
   </url>
 </urlset>
