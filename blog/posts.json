@@ -8,7 +8,9 @@
       "date": "2026-01-23",
       "category": "LIC Career",
       "slug_en": "how-to-become-lic-agent-delhi-ghaziabad-noida-en",
-      "slug_hi": "how-to-become-lic-agent-delhi-ghaziabad-noida-hi"
+      "slug_hi": "how-to-become-lic-agent-delhi-ghaziabad-noida-hi",
+      "contentFile_en": "how-to-become-lic-agent-delhi-ghaziabad-noida-en.md",
+      "contentFile_hi": "how-to-become-lic-agent-delhi-ghaziabad-noida-hi.md"
     },
     {
       "title_en": "Bima Sakhi Scheme: Why It’s Important for Women & Key Benefits",
@@ -18,49 +20,109 @@
       "date": "2026-01-24",
       "category": "Bima Sakhi",
       "slug_en": "bima-sakhi-scheme-benefits-for-women-en",
-      "slug_hi": "bima-sakhi-yojana-mahilaon-ke-liye-fayde-hi"
+      "slug_hi": "bima-sakhi-yojana-mahilaon-ke-liye-fayde-hi",
+      "contentFile_en": "bima-sakhi-scheme-benefits-for-women-en.md",
+      "contentFile_hi": "bima-sakhi-yojana-mahilaon-ke-liye-fayde-hi.md"
     },
     {
       "title_en": "IC-38 Exam Preparation Guide in Delhi, Noida & Ghaziabad (LIC Agent / Bima Sakhi)",
       "title_hi": "Delhi / Noida / Ghaziabad में IC-38 परीक्षा की तैयारी कैसे करें? (LIC Agent / Bima Sakhi)",
-      "description_en": "Complete IC-38 exam preparation guide for LIC Agent and Bima Sakhi in Delhi NCR. Know exam pattern, 50 MCQs, 60 minutes, syllabus, question types and tips.",
-      "description_hi": "Delhi NCR के लिए IC-38 परीक्षा की पूरी तैयारी गाइड। परीक्षा पैटर्न, 50 MCQ, 60 मिनट, सिलेबस और आसान तैयारी टिप्स।",
+      "description_en": "Complete IC-38 exam preparation guide for LIC Agent and Bima Sakhi in Delhi NCR.",
+      "description_hi": "Delhi NCR के लिए IC-38 परीक्षा की पूरी तैयारी गाइड।",
       "date": "2026-01-26",
       "category": "IC-38 Exam",
       "slug_en": "ic-38-exam-preparation-delhi-noida-ghaziabad-en",
-      "slug_hi": "ic-38-pariksha-taiyari-delhi-noida-ghaziabad-hi"
+      "slug_hi": "ic-38-pariksha-taiyari-delhi-noida-ghaziabad-hi",
+      "contentFile_en": "ic-38-exam-preparation-delhi-noida-ghaziabad-en.md",
+      "contentFile_hi": "ic-38-pariksha-taiyari-delhi-noida-ghaziabad-hi.md"
     },
     {
-      "title_en": "LIC Agent Commission Structure, Benefits & Earnings in Delhi, Ghaziabad & Noida",
-      "title_hi": "दिल्ली, गाज़ियाबाद और नोएडा में LIC एजेंट कमीशन, फायदे और कमाई",
-      "description_en": "Learn LIC agent commission structure, monthly income, renewal earnings, benefits and how to start LIC agency in Delhi NCR (Delhi, Ghaziabad, Noida).",
-      "description_hi": "LIC एजेंट कमीशन स्ट्रक्चर, मासिक आय, रिन्यूअल कमाई, फायदे और दिल्ली NCR में LIC एजेंसी शुरू करने की पूरी जानकारी।",
+      "title_en": "LIC Agent Commission Income Guide",
+      "title_hi": "LIC एजेंट कमीशन और कमाई गाइड",
+      "description_en": "Complete LIC agent commission structure, renewal income and earning potential.",
+      "description_hi": "LIC एजेंट कमीशन संरचना, नवीनीकरण आय और कमाई की पूरी जानकारी।",
       "date": "2026-01-27",
       "category": "LIC Commission & Income",
-      "slug_en": "lic-agent-commission-structure-benefits-earnings-delhi-ghaziabad-noida-en",
-      "slug_hi": "lic-agent-commission-fayde-kamai-delhi-ghaziabad-noida-hi"
+      "slug_en": "lic-agent-commission-income-guide-en",
+      "slug_hi": "lic-agent-commission-income-guide-hi",
+      "contentFile_en": "lic-agent-commission-income-guide-en.md",
+      "contentFile_hi": "lic-agent-commission-income-guide-hi.md"
     },
     {
-      "title_en": "LIC Special Revival Campaign 2026: Revive Lapsed Policy in Delhi, Noida & Ghaziabad",
-      "title_hi": "LIC स्पेशल रिवाइवल कैंपेन 2026: दिल्ली, नोएडा और गाज़ियाबाद में लैप्स पॉलिसी रिवाइव करें",
-      "description_en": "LIC Special Revival Campaign 2026 offers late fee concession to revive lapsed LIC policies in Delhi NCR. Know eligibility, benefits, concession details and revival process in Delhi, Noida & Ghaziabad.",
-      "description_hi": "LIC स्पेशल रिवाइवल कैंपेन 2026 के तहत दिल्ली, नोएडा और गाज़ियाबाद में लैप्स LIC पॉलिसी कम लेट फीस में रिवाइव करें। पात्रता, फायदे, छूट और प्रक्रिया की पूरी जानकारी।",
+      "title_en": "LIC Special Revival Campaign 2026",
+      "title_hi": "LIC स्पेशल रिवाइवल कैंपेन 2026",
+      "description_en": "Revive lapsed LIC policies with late fee concession under LIC Special Revival Campaign 2026.",
+      "description_hi": "LIC स्पेशल रिवाइवल कैंपेन 2026 के तहत लैप्स पॉलिसी कम शुल्क में रिवाइव करें।",
       "date": "2026-01-27",
       "category": "LIC Revival Campaign",
       "slug_en": "lic-special-revival-campaign-2026-delhi-noida-ghaziabad-en",
       "slug_hi": "lic-special-revival-campaign-2026-delhi-noida-ghaziabad-hi",
-      "tags": [
-        "LIC Revival Campaign",
-        "LIC Policy Revival Delhi",
-        "LIC Lapsed Policy Revive",
-        "LIC Special Revival 2026",
-        "LIC Policy Revival Noida",
-        "LIC Policy Revival Ghaziabad",
-        "LIC Late Fee Concession",
-        "LIC Policy Delhi NCR",
-        "Revive LIC Policy Online",
-        "LIC Policy Benefits"
-      ]
+      "contentFile_en": "lic-special-revival-campaign-2026-delhi-noida-ghaziabad-en.md",
+      "contentFile_hi": "lic-special-revival-campaign-2026-delhi-noida-ghaziabad-hi.md"
+    },
+    {
+  "posts": [
+    {
+      "title_en": "How to Become an LIC Agent in Delhi, Ghaziabad and Noida",
+      "title_hi": "दिल्ली, गाज़ियाबाद और नोएडा में LIC एजेंट कैसे बनें",
+      "description_en": "Step-by-step guide to become an LIC agent in Delhi, Ghaziabad and Noida including eligibility, IC-38 exam, training and income potential.",
+      "description_hi": "दिल्ली, गाज़ियाबाद और नोएडा में LIC एजेंट बनने की पूरी प्रक्रिया, योग्यता, IC-38 परीक्षा, ट्रेनिंग और कमाई की जानकारी।",
+      "date": "2026-01-23",
+      "category": "LIC Career",
+      "slug_en": "how-to-become-lic-agent-delhi-ghaziabad-noida-en",
+      "slug_hi": "how-to-become-lic-agent-delhi-ghaziabad-noida-hi",
+      "contentFile_en": "how-to-become-lic-agent-delhi-ghaziabad-noida-en.md",
+      "contentFile_hi": "how-to-become-lic-agent-delhi-ghaziabad-noida-hi.md"
+    },
+    {
+      "title_en": "Bima Sakhi Scheme: Why It’s Important for Women & Key Benefits",
+      "title_hi": "बिमा सखी योजना: महिलाओं के लिए क्यों जरूरी है और क्या हैं फायदे",
+      "description_en": "Complete guide to LIC Bima Sakhi scheme for women including stipend, commission income, training, eligibility and career benefits.",
+      "description_hi": "LIC बिमा सखी योजना की पूरी जानकारी—महिलाओं के लिए स्टाइपेंड, कमीशन, ट्रेनिंग, योग्यता और करियर के फायदे।",
+      "date": "2026-01-24",
+      "category": "Bima Sakhi",
+      "slug_en": "bima-sakhi-scheme-benefits-for-women-en",
+      "slug_hi": "bima-sakhi-yojana-mahilaon-ke-liye-fayde-hi",
+      "contentFile_en": "bima-sakhi-scheme-benefits-for-women-en.md",
+      "contentFile_hi": "bima-sakhi-yojana-mahilaon-ke-liye-fayde-hi.md"
+    },
+    {
+      "title_en": "IC-38 Exam Preparation Guide in Delhi, Noida & Ghaziabad (LIC Agent / Bima Sakhi)",
+      "title_hi": "Delhi / Noida / Ghaziabad में IC-38 परीक्षा की तैयारी कैसे करें? (LIC Agent / Bima Sakhi)",
+      "description_en": "Complete IC-38 exam preparation guide for LIC Agent and Bima Sakhi in Delhi NCR.",
+      "description_hi": "Delhi NCR के लिए IC-38 परीक्षा की पूरी तैयारी गाइड।",
+      "date": "2026-01-26",
+      "category": "IC-38 Exam",
+      "slug_en": "ic-38-exam-preparation-delhi-noida-ghaziabad-en",
+      "slug_hi": "ic-38-pariksha-taiyari-delhi-noida-ghaziabad-hi",
+      "contentFile_en": "ic-38-exam-preparation-delhi-noida-ghaziabad-en.md",
+      "contentFile_hi": "ic-38-pariksha-taiyari-delhi-noida-ghaziabad-hi.md"
+    },
+    {
+      "title_en": "LIC Agent Commission Income Guide",
+      "title_hi": "LIC एजेंट कमीशन और कमाई गाइड",
+      "description_en": "Complete LIC agent commission structure, renewal income and earning potential.",
+      "description_hi": "LIC एजेंट कमीशन संरचना, नवीनीकरण आय और कमाई की पूरी जानकारी।",
+      "date": "2026-01-27",
+      "category": "LIC Commission & Income",
+      "slug_en": "lic-agent-commission-income-guide-en",
+      "slug_hi": "lic-agent-commission-income-guide-hi",
+      "contentFile_en": "lic-agent-commission-income-guide-en.md",
+      "contentFile_hi": "lic-agent-commission-income-guide-hi.md"
+    },
+    {
+      "title_en": "LIC Special Revival Campaign 2026",
+      "title_hi": "LIC स्पेशल रिवाइवल कैंपेन 2026",
+      "description_en": "Revive lapsed LIC policies with late fee concession under LIC Special Revival Campaign 2026.",
+      "description_hi": "LIC स्पेशल रिवाइवल कैंपेन 2026 के तहत लैप्स पॉलिसी कम शुल्क में रिवाइव करें।",
+      "date": "2026-01-27",
+      "category": "LIC Revival Campaign",
+      "slug_en": "lic-special-revival-campaign-2026-delhi-noida-ghaziabad-en",
+      "slug_hi": "lic-special-revival-campaign-2026-delhi-noida-ghaziabad-hi",
+      "contentFile_en": "lic-special-revival-campaign-2026-delhi-noida-ghaziabad-en.md",
+      "contentFile_hi": "lic-special-revival-campaign-2026-delhi-noida-ghaziabad-hi.md"
     }
+  ]
+}
   ]
 }
