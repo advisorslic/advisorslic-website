@@ -60,8 +60,8 @@ This creates **stable, recurring income**.
 
 | Policy Type | First Year | Renewal |
 |------------|-----------|---------|
-| Endowment / Money Back | ~35% | ~5% |
-| Whole Life Plans | ~35% | ~5% |
+| Endowment / Money Back | ~28% | ~5% |
+| Whole Life Plans | ~28% | ~5% |
 | Term Insurance | ~25% | Very Low / Nil |
 | Pension / Annuity | ~7.5% | Nil |
 | Single Premium Plans | ~2% | Nil |
