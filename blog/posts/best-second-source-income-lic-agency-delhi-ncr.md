@@ -89,7 +89,7 @@ If you can communicate well and build trust, you can succeed in this field.
 
 ---
 
-## 🚀 Apply Now – Lead Capture CTA
+## 🚀 Apply Now 
 
 ### 👉 Start Your LIC Agency Today
 **Zero Investment | Government Brand | Lifetime Income**
