@@ -1,6 +1,6 @@
 
 
-## Best Second Source of Income in Delhi NCR: Why LIC Agency Is the Top Zero-Investment Option
+## Best Second Source of Income in Delhi NCR: Why LIC Agency Is the Top (Zero-Investment) Option
 
 In today’s fast-changing economy, depending on only one source of income is risky—especially in **Delhi NCR (Delhi, Noida, Ghaziabad)** where living costs are rising rapidly.  
 That’s why having a **second source of income** is no longer optional; it’s essential.
@@ -93,9 +93,6 @@ If you can communicate well and build trust, you can succeed in this field.
 
 ### 👉 Start Your LIC Agency Today
 **Zero Investment | Government Brand | Lifetime Income**
-
-📌 **Apply Now:**  
-👉 [Apply for LIC Agency](#apply-now)
 
 📞 **Call / WhatsApp:**  
 👉 +91-9718017880  
