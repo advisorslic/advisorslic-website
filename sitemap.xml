@@ -1,45 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Pages -->
   <url>
     <loc>https://advisorslic.in/</loc>
-    <lastmod>2026-01-23</lastmod>
-  </url>
-  <url>
-    <loc>https://advisorslic.in/blog/</loc>
-    <lastmod>2026-01-23</lastmod>
+    <lastmod>2026-02-06</lastmod>
   </url>
 
-  <!-- Blog posts -->
+  <url>
+    <loc>https://advisorslic.in/blog/</loc>
+    <lastmod>2026-02-06</lastmod>
+  </url>
+
+  <!-- Blog Posts (from posts.json) -->
   <url>
     <loc>https://advisorslic.in/post.html?slug=how-to-become-lic-agent-delhi-ghaziabad-noida-en</loc>
     <lastmod>2026-01-23</lastmod>
   </url>
+
   <url>
     <loc>https://advisorslic.in/post.html?slug=how-to-become-lic-agent-delhi-ghaziabad-noida-hi</loc>
     <lastmod>2026-01-23</lastmod>
   </url>
+
   <url>
     <loc>https://advisorslic.in/post.html?slug=bima-sakhi-scheme-benefits-for-women-en</loc>
     <lastmod>2026-01-24</lastmod>
   </url>
+
   <url>
     <loc>https://advisorslic.in/post.html?slug=bima-sakhi-yojana-mahilaon-ke-liye-fayde-hi</loc>
     <lastmod>2026-01-24</lastmod>
   </url>
+
   <url>
     <loc>https://advisorslic.in/post.html?slug=ic-38-exam-preparation-delhi-noida-ghaziabad-en</loc>
     <lastmod>2026-01-26</lastmod>
   </url>
+
   <url>
     <loc>https://advisorslic.in/post.html?slug=ic-38-pariksha-taiyari-delhi-noida-ghaziabad-hi</loc>
     <lastmod>2026-01-26</lastmod>
   </url>
+
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=lic-agent-commission-income-guide-en</loc>
+    <lastmod>2026-01-27</lastmod>
+  </url>
+
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=lic-agent-commission-income-guide-hi</loc>
+    <lastmod>2026-01-27</lastmod>
+  </url>
+
   <url>
     <loc>https://advisorslic.in/post.html?slug=lic-agent-commission-structure-benefits-earnings-delhi-ghaziabad-noida-en</loc>
-    <lastmod>2026-01-24</lastmod>
+    <lastmod>2026-01-27</lastmod>
   </url>
+
   <url>
-    <loc>https://advisorslic.in/post.html?slug=lic-agent-commission-fayde-kamai-delhi-ghaziabad-noida-hi</loc>
-    <lastmod>2026-01-24</lastmod>
+    <loc>https://advisorslic.in/post.html?slug=lic-agent-commission-structure-benefits-earnings-delhi-ghaziabad-noida-hi</loc>
+    <lastmod>2026-01-27</lastmod>
   </url>
+
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=lic-special-revival-campaign-2026-delhi-noida-ghaziabad-en</loc>
+    <lastmod>2026-01-27</lastmod>
+  </url>
+
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=lic-special-revival-campaign-2026-delhi-noida-ghaziabad-hi</loc>
+    <lastmod>2026-01-27</lastmod>
+  </url>
+
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=best-second-source-income-lic-agency-delhi-ncr</loc>
+    <lastmod>2026-02-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://advisorslic.in/post.html?slug=best-second-source-income-lic-agency-delhi-ncr-hi</loc>
+    <lastmod>2026-02-06</lastmod>
+  </url>
+
 </urlset>
