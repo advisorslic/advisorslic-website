@@ -150,6 +150,4 @@ LIC एजेंट की आय **फिक्स नहीं** होती,
 
 - 🔹 [LIC एजेंट कमीशन और कमाई गाइड – पूरी जानकारी](https://advisorslic.in/post.html?slug=lic-agent-commission-income-guide-hi)
 
-- 🔹 [LIC स्पेशल रिवाइवल कैंपेन 2026 – पूरी जानकारी](https://advisorslic.in/post.html?slug=lic-special-revival-campaign-2026-delhi-noida-ghaziabad-hi)
-
 ---
