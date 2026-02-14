@@ -17,7 +17,7 @@ In this complete 2026 checklist, we explain all documents required to become a L
 Before collecting documents, make sure you meet the basic eligibility:
 
 - Minimum age: 18 years  
-- Educational qualification: As per LIC guidelines  
+- Educational qualification: 10th  
 - Indian citizen  
 - Not blacklisted by any insurer  
 
