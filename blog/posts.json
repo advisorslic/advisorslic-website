@@ -133,18 +133,16 @@
   "contentFile_hi": "lic-agent-income-growth-monthly-hindi.md"
 },
   {
-    "title": "Not Happy with Your Job? Here’s a Smarter Career Choice",
-    "date": "2026-01-05",
-    "category": "LIC Career",
-    "description": "If you are not happy with your job, explore LIC career.",
-    "slug": "not-happy-with-job-lic-career-en"
-  },
-  {
-    "title": "क्या आप अपनी नौकरी से खुश नहीं हैं? यहाँ है एक बेहतर करियर विकल्प",
-    "date": "2026-01-05",
-    "category": "LIC Career",
-    "description": "अगर आप अपनी नौकरी से संतुष्ट नहीं हैं, तो LIC career अपनाएं।",
-    "slug": "not-happy-with-job-lic-career-hi"
-  }
+  "title_en": "Not Happy with Your Job? Here’s a Smarter Career Choice",
+  "title_hi": "क्या आप अपनी नौकरी से खुश नहीं हैं? यहाँ है एक बेहतर करियर विकल्प",
+  "description_en": "If you are not happy with your job, explore LIC Agent or Bima Sakhi career for unlimited income and flexibility.",
+  "description_hi": "अगर आप अपनी नौकरी से संतुष्ट नहीं हैं, तो LIC Agent या Bima Sakhi बनकर बेहतर income और flexibility पा सकते हैं।",
+  "date": "2026-01-05",
+  "category": "LIC Career",
+  "slug_en": "not-happy-with-job-lic-career-en",
+  "slug_hi": "not-happy-with-job-lic-career-hi",
+  "contentFile_en": "not-happy-with-job-lic-career-en.md",
+  "contentFile_hi": "not-happy-with-job-lic-career-hi.md"
+}
   ]
 }
