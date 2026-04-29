@@ -4,7 +4,7 @@
 
 Are you looking for a flexible and high-income career opportunity in Delhi NCR?
 
-If you live in Delhi, Noida, or Ghaziabad, joining :contentReference[oaicite:0]{index=0} as an agent can be your best career decision in 2026.
+If you live in Delhi, Noida, or Ghaziabad, joining as an agent can be your best career decision in 2026.
 
 With zero investment and unlimited earning potential, LIC offers a secure and respected career option.
 
