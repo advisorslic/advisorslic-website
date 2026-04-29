@@ -28,9 +28,9 @@ As an LIC agent in Delhi, Noida, or Ghaziabad, you get:
 
 We are actively recruiting LIC agents across:
 
-- :contentReference[oaicite:1]{index=1}  
-- :contentReference[oaicite:2]{index=2}  
-- :contentReference[oaicite:3]{index=3}  
+- Delhi
+- Ghaziabad 
+- Noida
 
 👉 Anyone can apply:
 - Housewives  
@@ -76,7 +76,7 @@ Your earnings depend on your effort:
 ## Special Opportunity for Women
 
 LIC is promoting women empowerment through  
-:contentReference[oaicite:4]{index=4}  
+Bima Sakhi yojna (3 years Stipend Program)
 
 Perfect for housewives in Delhi NCR looking for work-from-home income.
 
