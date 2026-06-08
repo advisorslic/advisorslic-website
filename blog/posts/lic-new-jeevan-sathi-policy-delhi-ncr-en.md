@@ -4,7 +4,7 @@
 
 Planning a secure financial future together is one of the most important goals for every married couple.
 
-To help couples achieve both protection and savings under a single policy, LIC has introduced the New Jeevan Sathi Plan, a joint life insurance plan designed specifically for married couples. The plan provides life cover for both spouses under one policy while also helping build long-term savings. :contentReference[oaicite:0]{index=0}
+To help couples achieve both protection and savings under a single policy, LIC has introduced the New Jeevan Sathi Plan, a joint life insurance plan designed specifically for married couples. The plan provides life cover for both spouses under one policy while also helping build long-term savings. 
 
 For families living in Delhi, Noida, Ghaziabad, Gurugram, and Greater Noida, this policy can be an effective tool for financial security and wealth creation.
 
@@ -12,8 +12,7 @@ For families living in Delhi, Noida, Ghaziabad, Gurugram, and Greater Noida, thi
 
 ## What is LIC New Jeevan Sathi Policy?
 
-LIC's New Jeevan Sathi is a Joint Life Savings and Protection Plan that covers both husband and wife under a single policy. The policy combines life insurance protection with savings benefits, helping couples achieve long-term financial goals. :contentReference[oaicite:1]{index=1}
-
+LIC's New Jeevan Sathi is a Joint Life Savings and Protection Plan that covers both husband and wife under a single policy. The policy combines life insurance protection with savings benefits, helping couples achieve long-term financial goals. 
 Unlike individual policies, both spouses receive protection under one contract, making policy management simpler and more convenient.
 
 ---
@@ -90,7 +89,7 @@ Eligible tax benefits may be available as per prevailing income tax laws.
 
 ## Conclusion
 
-LIC New Jeevan Sathi is a thoughtfully designed joint life insurance plan that combines protection and savings for married couples. It helps families prepare for life's uncertainties while working toward future financial goals. :contentReference[oaicite:7]{index=7}
+LIC New Jeevan Sathi is a thoughtfully designed joint life insurance plan that combines protection and savings for married couples. It helps families prepare for life's uncertainties while working toward future financial goals.
 
 For couples in Delhi NCR looking for a single solution for protection and long-term savings, the New Jeevan Sathi Plan deserves serious consideration.
 
