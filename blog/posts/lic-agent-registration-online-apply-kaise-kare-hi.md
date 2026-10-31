@@ -1,3 +1,4 @@
+ 
 # LIC Agent Registration Online – ऑनलाइन आवेदन कैसे करें और अपना करियर कैसे शुरू करें?
 
 क्या आप LIC of India के साथ एक flexible career opportunity की तलाश में हैं? Life Insurance Corporation of India (LIC) के साथ एजेंट बनना उन लोगों के लिए एक विकल्प हो सकता है जो अपना professional career बनाना चाहते हैं, ग्राहकों के साथ अच्छे संबंध विकसित करना चाहते हैं और अपने प्रयासों के आधार पर income opportunity तलाशना चाहते हैं।
@@ -167,6 +168,11 @@ Retired individuals लागू eligibility, appointment और अन्य re
 **Delhi NCR में LIC Agent Career Guidance प्राप्त करें**
 
 Delhi | Noida | Greater Noida | Ghaziabad | Gurugram | Faridabad
+
+**प्रक्रिया समझें। Skills विकसित करें। ग्राहकों की जिम्मेदारी से सेवा करें।**
+
+*Disclaimer: यह ब्लॉग सामान्य career information के लिए है। LIC agency appointment लागू eligibility criteria, training, examination, licensing, regulatory requirements और LIC की शर्तों के अधीन है। Career outcomes और income guaranteed नहीं हैं। नवीनतम requirements की पुष्टि LIC या authorised representative से करें।*
+
 
 **प्रक्रिया समझें। Skills विकसित करें। ग्राहकों की जिम्मेदारी से सेवा करें।**
 
